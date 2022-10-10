@@ -74,13 +74,12 @@ const Navbar = () => {
             <div className={styles["collabx__navbar-menu_container-links"]}>
               <Menu />
               <div
-                className={
-                  styles["collabx__navbar-menu_container-links-sign"]
-                }
+                className={styles["collabx__navbar-menu_container-links-sign"]}
               >
-                {user.userData?.isLoggedIn ? (
+                {user?.isLoggedIn === true && (
                   <Button>{user.userData?.firstName}</Button>
-                ) : (
+                )}
+                {!user?.isLoggedIn && (
                   <>
                     <Link href="/auth/login">
                       <p>Sign in</p>
