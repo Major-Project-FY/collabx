@@ -1,0 +1,30 @@
+.container {
+  margin: 2rem 4rem;
+  padding: 2rem 4rem;
+  background-color: var(--light-color);
+}
+
+.dark {
+  background-color: transparent;
+}
+.light {
+  background-color: var(--light-color);
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 4rem;
+  }
+  .container {
+    margin: 4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+  .container {
+    margin: 4rem 2rem;
+  }
+}

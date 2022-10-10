@@ -1,0 +1,41 @@
+.container {
+    height: calc(100vh - 8rem);
+    color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.container h1 {
+    font-family: var(--font-family-title);
+}
+
+.container p a {
+    text-decoration: underline;
+}
+.container p a:hover {
+    color: var(--light-color);
+}
+
+.form input {
+    height: 5vh;
+    background-color: #151a1e;
+    color: var(--light-color);
+    border-color: #a4a8ad;
+    resize: both;
+}
+.form input:focus {
+    background-color: #151a1e;
+    border: 1px solid var(--light-color);
+    color: var(--light-color);
+}
+
+
+@media screen and (max-width: 550px) {
+    .form input {
+        display: block;
+        width: 100%;
+    }
+}
