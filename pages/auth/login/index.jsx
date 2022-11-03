@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   if (userCtx?.isLoggedIn) {
-    userCtx?.isLoggedIn && router.push("/");
+    userCtx?.isLoggedIn && router.push("/home");
   }
 
   return (
@@ -31,7 +31,7 @@ const Login = () => {
       <div className={styles.container}>
         {!userCtx?.isLoggedIn && (
           <>
-            <h2>Login to CollabX</h2>
+            <h2>Welcome back!</h2>
             <Form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
               <p className="text-center">
                 Enter your email address and password.
@@ -61,7 +61,7 @@ const Login = () => {
               <Button responsive>Login</Button>
               <p className="text-center mt-4">Or, login with GitHub</p>
               <Button responsive>
-                <FaGithub size="20" className="mb-1" color="#000" /> GitHub
+                <FaGithub size="20" className="mb-1" color="#EFEFF1" /> GitHub
               </Button>
             </Form>
             <p>

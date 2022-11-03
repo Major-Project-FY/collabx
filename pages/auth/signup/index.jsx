@@ -31,12 +31,12 @@ const Signup = () => {
         email: data.email,
       };
       await userCtx.login(userData);
-      router.push("/");
+      router.push("/home");
     }
   };
 
   if (userCtx?.isLoggedIn) {
-    userCtx?.isLoggedIn && router.push("/");
+    userCtx?.isLoggedIn && router.push("/home");
   }
 
   // useEffect(() => {
@@ -108,7 +108,7 @@ const Signup = () => {
               <Button responsive>Signup</Button>
               <p className="text-center mt-4">Or, signup with GitHub</p>
               <Button responsive>
-                <FaGithub size="20" className="mb-1" color="#000" /> GitHub
+                <FaGithub size="20" className="mb-1" color="#EFEFF1" /> GitHub
               </Button>
             </Form>
             <p>

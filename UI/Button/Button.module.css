@@ -1,7 +1,7 @@
 .button {
   padding: 0.5rem 1rem;
-  background-color: var(--light-color);
-  color: #000;
+  background-color: var(--light-theme-text);
+  color: var(--light-theme-bg);
   font-size: 18px;
   font-family: var(--font-family);
   font-weight: 500;
@@ -10,4 +10,11 @@
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+.light {
+  background-color: var(--light-theme-bg);
+  color: var(--light-theme-text);
+  border: 2px solid var(--light-theme-text);
+  padding: 0.4rem 1rem;
 }

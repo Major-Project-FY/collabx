@@ -6,12 +6,21 @@
 }
 
 body {
-  background-color: #040c18 !important;
+  /* background-color: #040c18 !important; */
+  background-color: var(--light-theme-bg) ;
 }
 
 a {
   color: unset;
   text-decoration: none;
+}
+
+p, a, ul, li, ol, span {
+  font-family: var(--font-family);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
 }
 
 /* Default paddining and margin */
@@ -39,4 +48,7 @@ a {
   --color-text: #81afdd;
   --color-subtext: #ff8a71;
   --light-color: #efeff1;
+
+  --light-theme-bg: #EFEFF1;
+  --light-theme-text: #0C1011;
 }

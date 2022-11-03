@@ -28,7 +28,7 @@
   font-weight: bold;
 }
 .collabx__navbar-links_logo h1:hover {
-  color: var(--color-text);
+  color: var(--light-theme-text);
   font-size: 2rem;
 }
 
@@ -45,6 +45,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 2rem;
+}
+
+.collabx__navbar-sign img {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
 }
 
 .collabx__navbar-links_container p,
@@ -62,18 +69,18 @@
 }
 .collabx__navbar-links_container p,
 .collabx__navbar-sign p {
-  color: var(--light-color);
+  color: var(--light-theme-text);
 }
 .collabx__navbar-links_container p a:hover,
 .collabx__navbar-sign p a:hover {
-  color: var(--light-color);
+  color: var(--light-theme-text);
 }
 
 .collabx__navbar-sign button,
 .collabx__navbar-menu_container button {
   padding: 0.5rem 1rem;
-  background-color: var(--light-color);
-  color: #000;
+  background-color: var(--light-theme-text);
+  color: var(--light-theme-bg);
   font-size: 18px;
   font-family: var(--font-family);
   font-weight: 500;
@@ -101,7 +108,7 @@
   flex-direction: column;
 
   text-align: end;
-  background: #efeff1;
+  background: var(--light-theme-text);
   padding: 2rem;
   position: absolute;
   top: 40px;
@@ -120,6 +127,8 @@
   display: none;
 }
 
+
+
 @media screen and (max-width: 1078px) {
   .collabx__navbar-links_container {
     display: none;
@@ -133,11 +142,11 @@
 
   .collabx__navbar-menu_container-links p,
   .collabx__navbar-menu_container-links-sign p {
-    color: #040c18;
+    color: var(--light-theme-bg);
   }
   .collabx__navbar-menu_container-links-sign button {
-    background-color: #040c18;
-    color: #efeff1;
+    background-color: var(--light-theme-bg);
+    color: var(--light-theme-text);
   }
 }
 @media screen and (max-width: 700px) {

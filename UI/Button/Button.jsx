@@ -3,7 +3,7 @@ import React, { memo } from "react";
 
 import styles from "./Button.module.css";
 
-const Button = ({ children, href, width, responsive }) => {
+const Button = ({ children, href, width, responsive, lightBg }) => {
   return (
     <>
       {href ? (
@@ -11,8 +11,8 @@ const Button = ({ children, href, width, responsive }) => {
           <button
             style={{
               width: width ? `${width}vw` : responsive ? "100%" : "auto",
-            }}
-            className={styles.button}
+           }}
+            className={`${styles.button} ${lightBg ? styles.light : ""}`}
           >
             {children}
           </button>
@@ -20,8 +20,8 @@ const Button = ({ children, href, width, responsive }) => {
       ) : (
         <button
           style={{ width: width ? `${width}vw` : responsive ? "100%" : "auto" }}
-          className={styles.button}
-        >
+          className={`${styles.button} ${lightBg ? styles.light : ""}`}
+          >
           {children}
         </button>
       )}
@@ -30,3 +30,4 @@ const Button = ({ children, href, width, responsive }) => {
 };
 
 export default memo(Button);
+
