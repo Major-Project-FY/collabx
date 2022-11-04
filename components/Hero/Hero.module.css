@@ -85,3 +85,9 @@
         text-align: center;
     }
 }
+
+@media screen and (max-width: 430px) {
+    .feature h3 {
+        text-align: center;
+    }
+}
