@@ -29,7 +29,7 @@ const CreatePost = () => {
             <span className="text-muted"> <FaEdit size={20} className="mb-1 me-2"/> Publish a post</span>
         </Col>
         <Col className="d-flex align-items-center justify-content-end">
-            <Button>Share</Button>
+            <Button lightBg={true}>Share</Button>
         </Col>
       </Row>
     </Card>

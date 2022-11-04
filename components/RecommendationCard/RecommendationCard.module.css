@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5px;
+    line-height: 1.2;
+}
+
+.content h5 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.content p {
+    font-size: .8rem;
+}

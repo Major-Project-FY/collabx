@@ -10,7 +10,7 @@ import Button from "../../UI/Button/Button";
 import styles from "./Navbar.module.css";
 
 const DUMMYIMG =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg";
+"https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA"
 
 const Menu = () => {
   const user = useContext(UserContext);
