@@ -1,4 +1,26 @@
 .container {
-    margin:auto 15%;
+  margin: auto 15%;
   padding: 1rem 4rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin: auto 5%;
+    padding: 1rem 2rem;
+
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 0.1rem;
+    margin: auto 2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    margin: auto 1rem;
+    padding: 0.5rem;
+  }
 }

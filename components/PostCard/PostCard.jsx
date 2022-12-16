@@ -12,28 +12,27 @@ import {
 import styles from "./PostCard.module.css";
 
 const DUMMYIMG =
-"https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA"
+  "https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA";
 const PostCard = () => {
   return (
     <Card>
       <Row className="d-flex align-items-start justify-content-start">
-        <Col md={2}>
-          <BImage
-            height={70}
-            width={70}
-            roundedCircle
-            src={DUMMYIMG}
-            alt="img"
-          />
+        <Col md={2} sm={2} xs={2} className={styles["profile-image"]}>
+          <BImage roundedCircle src={DUMMYIMG} alt="img" />
         </Col>
-        <Col md={8}>
+        <Col md={8} sm={7} xs={8} className={styles["profile-description"]}>
           <div className={styles.content}>
             <h4>Mayuresh Shinde</h4>
             <p>Backend Developer and Open Source Enthusiast</p>
             <p className={`${styles["content-time"]} text-muted`}>3 hrs</p>
           </div>
         </Col>
-        <Col className="d-flex align-items-center justify-content-end">
+        <Col
+          md={2}
+          sm={3}
+          xs={2}
+          className={`${styles["three-dots"]} d-flex align-items-center justify-content-end`}
+        >
           <span>
             <BsThreeDots size={20} />
           </span>

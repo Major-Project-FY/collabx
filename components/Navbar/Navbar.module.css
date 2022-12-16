@@ -5,6 +5,8 @@
 
   padding: 2rem 6rem;
   user-select: none;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+
 }
 
 .collabx__navbar-links {
@@ -52,6 +54,7 @@
   height: 50px;
   width: 50px;
   background-size: contain;
+  cursor: pointer;
 }
 
 .collabx__navbar-links_container p,
@@ -158,15 +161,15 @@
   .collabx__navbar {
     padding: 2rem;
   }
-  .collabx__navbar-sign {
+  /* .collabx__navbar-sign {
     display: none;
-  }
+  } */
   .collabx__navbar-menu_container {
     top: 20px;
   }
-  .collabx__navbar-menu_container-links-sign {
+  /* .collabx__navbar-menu_container-links-sign {
     display: block;
-  }
+  } */
 }
 
 @media screen and (max-width: 400px) {

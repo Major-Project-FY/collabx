@@ -14,8 +14,6 @@
 @media screen and (max-width: 700px) {
   .container {
     padding: 4rem;
-  }
-  .container {
     margin: 4rem;
   }
 }
@@ -23,8 +21,6 @@
 @media screen and (max-width: 550px) {
   .container {
     padding: 2rem 2rem;
-  }
-  .container {
     margin: 2rem 2rem;
   }
 }

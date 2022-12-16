@@ -1,0 +1,28 @@
+.container {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background-color: #f4f7f8;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.container input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  width: 100%;
+}
+
+.container input:focus {
+  color: #000;
+  background-color: transparent;
+}

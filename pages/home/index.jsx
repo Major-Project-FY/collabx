@@ -8,6 +8,7 @@ import PostCard from "../../components/PostCard/PostCard";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import RecommendationCard from "../../components/RecommendationCard/RecommendationCard";
 import ExploreCard from "../../components/ExploreCard/ExploreCard";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 import { Row, Col } from "react-bootstrap";
 
@@ -19,15 +20,13 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (userCtx?.isLoggedIn) {
+    if (userCtx) {
       userCtx?.isLoggedIn === false && router.push("/");
     }
   }, []);
 
   return (
     <>
-      <Navbar />
-
       <div className={styles.container}>
         <Row>
           <Col sm={12} md={7}>
@@ -36,6 +35,7 @@ const Home = () => {
             <PostCard />
           </Col>
           <Col>
+            <SearchBar />
             <p style={{ margin: "1rem" }}>
               Follow for collaboration .{" "}
               <span className="text-muted">See more</span>

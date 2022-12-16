@@ -13,7 +13,9 @@ const RecommendationCard = () => {
       <Row>
         <Col
           md={10}
-          className="d-flex align-items-center justify-content-center gap-2"
+          sm={8}
+          xs={10}
+          className={styles["user-data"]}
         >
           <BImage roundedCircle width={52} height={52} src={DUMMY} alt="dumy" />
           <div className={styles.content}>
@@ -21,7 +23,7 @@ const RecommendationCard = () => {
             <p>Founder, NamasteDev | Teacher, Youtuber</p>
           </div>
         </Col>
-        <Col className="d-flex align-items-center justify-content-end">
+        <Col xs={2} sm={4} md={2} className={styles["follow-icon"]}>
           <span>
             <BsFillPlusCircleFill size={30} className="mb-1" />
           </span>

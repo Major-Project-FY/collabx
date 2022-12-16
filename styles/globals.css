@@ -7,7 +7,7 @@
 
 body {
   /* background-color: #040c18 !important; */
-  background-color: var(--light-theme-bg) ;
+  background-color: var(--light-theme-bg);
 }
 
 a {
@@ -15,15 +15,25 @@ a {
   text-decoration: none;
 }
 
-p, a, ul, li, ol, span {
+p,
+a,
+ul,
+li,
+ol,
+span {
   font-family: var(--font-family);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-title);
 }
 
-/* Default paddining and margin */
+/* Default padining and margin */
 .section-margin {
   margin: 2rem 4rem;
 }
@@ -31,8 +41,23 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2rem 4rem;
 }
 
+/* DEFAULT BOOTSTRAP CSS OVERRIDING */
 .form-control:focus {
   box-shadow: none;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active,
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: rgba(172, 210, 255, 0.16);
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-link,
+.nav-link:hover {
+  color: var(--light-theme-text);
 }
 
 :root {
@@ -49,6 +74,6 @@ h1, h2, h3, h4, h5, h6 {
   --color-subtext: #ff8a71;
   --light-color: #efeff1;
 
-  --light-theme-bg: #EFEFF1;
-  --light-theme-text: #0C1011;
+  --light-theme-bg: #efeff1;
+  --light-theme-text: #0c1011;
 }

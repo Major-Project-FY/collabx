@@ -10,7 +10,7 @@ import Button from "../../UI/Button/Button";
 import styles from "./Navbar.module.css";
 
 const DUMMYIMG =
-"https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA"
+  "https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA";
 
 const Menu = () => {
   const user = useContext(UserContext);
@@ -71,11 +71,9 @@ const Navbar = () => {
             <span>
               <FaBell size={20} color="#0C1011" />
             </span>
-            <BImage
-              roundedCircle
-              src={DUMMYIMG}
-              alt="dummy"
-            />
+            <Link href="/profile">
+              <BImage roundedCircle src={DUMMYIMG} alt="dummy" />
+            </Link>
           </>
         )}
         {!user?.isLoggedIn && (
@@ -112,12 +110,14 @@ const Navbar = () => {
               >
                 {user?.isLoggedIn === true && (
                   // <Button>{user.userData?.firstName}</Button>
-                  <Image
-                    style={{ borderRadius: "50%" }}
-                    width={100}
-                    src={DUMMYIMG}
-                    alt="dummy"
-                  />
+                  <Link href="/profile">
+                    <BImage
+                      roundedCircle
+                      width={50}
+                      src={DUMMYIMG}
+                      alt="dummy"
+                    />
+                  </Link>
                 )}
                 {!user?.isLoggedIn && (
                   <>
