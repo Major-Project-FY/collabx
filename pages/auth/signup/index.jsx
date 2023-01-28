@@ -23,7 +23,7 @@ const Signup = () => {
   const [showOtpVerified, setShowOtpVerified] = useState(false);
 
   console.log("signup", userCtx);
-  
+
   const onSubmit = async (data) => {
     // console.log(data);
     if (data.password !== data.confirmPassword) {
@@ -31,24 +31,26 @@ const Signup = () => {
     } else {
       setPasswordError(false);
       try {
-        var config = {
-          method: "post",
-          url: "https://colabx-backend-dev.onrender.com/auth/user/signup",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: data,
-        };
-        const result = await axios(config);
-        if (result.data.success) {
-          const userData = {
-            firstName: data.firstName,
-            lastName: data.lastname,
-            email: data.email,
-          };
-          await userCtx.login(userData);
-          router.push("/home");
-        }
+        await userCtx.login(userData);
+        router.push("/home");
+        // var config = {
+        //   method: "post",
+        //   url: "https://colabx-backend-dev.onrender.com/auth/user/signup",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   data: data,
+        // };
+        // const result = await axios(config);
+        // if (result.data.success) {
+        //   const userData = {
+        //     firstName: data.firstName,
+        //     lastName: data.lastname,
+        //     email: data.email,
+        //   };
+        //   await userCtx.login(userData);
+        //   router.push("/home");
+        // }
       } catch (error) {
         console.log(error);
       }
@@ -157,7 +159,7 @@ const Signup = () => {
                       type="email"
                     />
                   </Col>
-                  <Col>
+                  {/* <Col>
                     <Button
                       disable={register.email ? true : false}
                       onClick={() => getOTP(register.email)}
@@ -165,13 +167,13 @@ const Signup = () => {
                     >
                       Get OTP
                     </Button>
-                  </Col>
+                  </Col> */}
                 </Row>
               </Form.Group>
 
               <Form.Group className="mb-4">
                 <Row>
-                  <Col xs={8}>
+                  {/* <Col xs={8}>
                     <Form.Control
                       required
                       placeholder="Enter OTP"
@@ -179,8 +181,8 @@ const Signup = () => {
                       value={otp}
                       onChange={(e) => setOtp(e.target.value)}
                     />
-                  </Col>
-                  <Col>
+                  </Col> */}
+                  {/* <Col>
                     <Button
                       onClick={() => verifyOTP(otp)}
                       classNames="fs-6"
@@ -188,7 +190,7 @@ const Signup = () => {
                     >
                       Verify
                     </Button>
-                  </Col>
+                  </Col> */}
                 </Row>
               </Form.Group>
               <Form.Group className="mb-4">
@@ -218,6 +220,7 @@ const Signup = () => {
               )}
 
               <Button responsive>Signup</Button>
+              
               <p className="text-center mt-4">Or, signup with GitHub</p>
               <Button responsive>
                 <FaGithub size="20" className="mb-1" color="#EFEFF1" /> GitHub

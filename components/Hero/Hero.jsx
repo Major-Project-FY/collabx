@@ -56,7 +56,7 @@ const allFeatures = [
 ];
 
 const Hero = () => {
-  const userCtx = useContext(userContext)
+  const userCtx = useContext(UserContext)
   return (
     <Wrapper>
       <Row>
