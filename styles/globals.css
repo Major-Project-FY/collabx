@@ -42,7 +42,7 @@ h6 {
 }
 
 /* DEFAULT BOOTSTRAP CSS OVERRIDING */
-.form-control:focus {
+.form-control:focus, .form-select:focus {
   box-shadow: none;
 }
 

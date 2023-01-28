@@ -1,9 +1,12 @@
-import React from "react";
+import React, { userContext } from "react";
 import Image from "next/image";
 import Wrapper from "../../UI/Wrapper/Wrapper";
 import Button from "../../UI/Button/Button";
 import { Row, Col, Container } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
+
 
 import styles from "./Hero.module.css";
 
@@ -53,6 +56,7 @@ const allFeatures = [
 ];
 
 const Hero = () => {
+  const userCtx = useContext(userContext)
   return (
     <Wrapper>
       <Row>

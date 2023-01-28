@@ -4,9 +4,11 @@ import Image from "next/image";
 
 import { Col, Row, Tab, Nav, Card as BCard } from "react-bootstrap";
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import Button from "../../UI/Button/Button";
 
 // Forms
 import BasicDetails from "../../components/ProfilePage/Profile/BasicDetails";
+import EduDetails from "../../components/ProfilePage/Profile/EduDetails";
 import Projects from "../../components/ProfilePage/Projects/Projects";
 
 import GITHUBIMG from "../../public/socialIcons/github.png";
@@ -15,7 +17,7 @@ import HACKERRANKIMG from "../../public/socialIcons/hackerank.png";
 import LINKEDINIMG from "../../public/socialIcons/linkedin.png";
 
 import styles from "../../styles/profile.module.css";
-import EduDetails from "../../components/ProfilePage/Profile/EduDetails";
+import WorkDetails from "../../components/ProfilePage/Profile/WorkDetails";
 
 const socialIntegration = [
   {
@@ -68,6 +70,14 @@ const index = () => {
                 <DetailCards title="Education Details">
                   <EduDetails />
                 </DetailCards>
+
+                <DetailCards title="Work Experience">
+                  <WorkDetails />
+                </DetailCards>
+
+                <div className="d-flex align-items-center justify-content-center mb-5">
+                  <Button>Save</Button>
+                </div>
               </Tab.Pane>
               <Tab.Pane as="div" eventKey="second">
                 <BCard bg="transparent">

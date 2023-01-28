@@ -1,44 +1,62 @@
 .projects-form {
 }
 
-.input-area input, .input-area textarea {
+.input-area input,
+.input-area textarea,
+.input-area select {
   border: none;
   outline: none;
-  background-color: #F4F7F8;
+  background-color: #f4f7f8;
   /* padding: 0; */
   margin-top: -6px;
   font-size: 14px;
 }
+.input-area select {
+  margin-top: 0;
+  height: 3.4rem;
+  width: 17.3rem;
+}
 
-.input-area input:focus, .input-area textarea:focus {
-  background-color: #F4F7F8;
+.input-area input:focus,
+.input-area textarea:focus,
+.input-area select:focus {
+  background-color: #f4f7f8;
 }
 
 .input-area label {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .input-area {
-  background: #F4F7F8;
+  background: #f4f7f8;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-add-btn {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .input-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .input-group input {
-    width: 18vw;
+  width: 18vw;
+}
+
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  margin-top: 1rem;
 }
