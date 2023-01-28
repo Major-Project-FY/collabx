@@ -20,12 +20,10 @@ const Signup = () => {
   const [otp, setOtp] = useState("");
 
   const [showOtpSent, setShowOtpSent] = useState(false);
-  const toggleShowOtpSent = () => setShowOtpSent(!showOtpSent);
-
   const [showOtpVerified, setShowOtpVerified] = useState(false);
-  const toggleShowOtpVerified = () => setShowOtpVerified(!showOtpVerified);
 
   console.log("signup", userCtx);
+  
   const onSubmit = async (data) => {
     // console.log(data);
     if (data.password !== data.confirmPassword) {
@@ -35,7 +33,7 @@ const Signup = () => {
       try {
         var config = {
           method: "post",
-          url: "http://127.0.0.1:5000/auth/user/signup",
+          url: "https://colabx-backend-dev.onrender.com/auth/user/signup",
           headers: {
             "Content-Type": "application/json",
           },
@@ -58,20 +56,20 @@ const Signup = () => {
   };
 
   const getOTP = async (email) => {
-    toggleShowOtpSent();
     try {
       var config = {
         method: "post",
-        url: "http://127.0.0.1:5000/auth/user/signup/otp",
+        url: "https://colabx-backend-dev.onrender.com/auth/user/signup/otp",
         headers: {
           "Content-Type": "application/json",
+          // "Access-Control-Allow-Origin": "*"
         },
         data: email,
       };
       const result = await axios(config);
       console.log(result);
       if (result.data.success) {
-        toggleShowOtpSent();
+        setShowOtpSent(true);
       }
     } catch (error) {
       console.log(error);
@@ -79,11 +77,10 @@ const Signup = () => {
   };
 
   const verifyOTP = async (otp) => {
-    toggleShowOtpVerified();
     try {
       var config = {
         method: "post",
-        url: "http://127.0.0.1:5000/auth/user/signup/verify-otp",
+        url: "https://colabx-backend-dev.onrender.com/auth/user/signup/verify-otp",
         headers: {
           "Content-Type": "application/json",
         },
@@ -92,7 +89,7 @@ const Signup = () => {
       const result = await axios(config);
       console.log(result);
       if (result.data.success) {
-        toggleShowOtpVerified();
+        setShowOtpVerified(true);
       }
     } catch (error) {
       console.log(error);
@@ -110,14 +107,14 @@ const Signup = () => {
   return (
     <Wrapper colorScheme="dark">
       <Toast
-        toggleShow={toggleShowOtpSent}
+        toggleShow={showOtpSent}
         show={showOtpSent}
         title="Alert"
         message="OTP has been sent successfully!"
         bg="light"
       />
       <Toast
-        toggleShow={toggleShowOtpVerified}
+        toggleShow={showOtpVerified}
         show={showOtpVerified}
         title="Alert"
         message="Email has been verified!"
@@ -162,7 +159,7 @@ const Signup = () => {
                   </Col>
                   <Col>
                     <Button
-                      disable={!register.email}
+                      disable={register.email ? true : false}
                       onClick={() => getOTP(register.email)}
                       classNames="fs-6"
                     >
@@ -187,7 +184,7 @@ const Signup = () => {
                     <Button
                       onClick={() => verifyOTP(otp)}
                       classNames="fs-6"
-                      width="4.9"
+                      width=""
                     >
                       Verify
                     </Button>
