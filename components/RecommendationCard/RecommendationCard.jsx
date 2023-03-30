@@ -5,7 +5,7 @@ import { BsFillPlusCircleFill } from "react-icons/bs";
 import styles from "./RecommendationCard.module.css";
 
 const DUMMY =
-  "https://media-exp1.licdn.com/dms/image/C5103AQGDGDnudfmZTQ/profile-displayphoto-shrink_800_800/0/1579620531120?e=1672876800&v=beta&t=i5EUiXvDRI-WWOviPGt0E7oAwpivfVVrQtFctYE16oA";
+  "https://yt3.googleusercontent.com/ytc/AL5GRJXcrhueXxa0kujKj2igxeT9S0ZFbgMxaXtXtZv8QQ=s176-c-k-c0x00ffffff-no-rj";
 
 const RecommendationCard = () => {
   return (

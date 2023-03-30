@@ -17,34 +17,32 @@ const Signup = () => {
   const userCtx = useContext(UserContext);
   const { register, handleSubmit } = useForm();
   const [passwordError, setPasswordError] = useState(false);
-  const [otp, setOtp] = useState("");
 
-  const [showOtpSent, setShowOtpSent] = useState(false);
-  const [showOtpVerified, setShowOtpVerified] = useState(false);
+  // console.log("signup", userCtx);
 
-  console.log("signup", userCtx);
-  
   const onSubmit = async (data) => {
-    // console.log(data);
-    if (data.password !== data.confirmPassword) {
+    if (data.password !== data.passwordConfirm) {
       setPasswordError(true);
     } else {
       setPasswordError(false);
       try {
         var config = {
           method: "post",
-          url: "https://colabx-backend-dev.onrender.com/auth/user/signup",
+          url: "https://collabx-backend.onrender.com/api/auth/user/signup",
           headers: {
             "Content-Type": "application/json",
           },
           data: data,
         };
         const result = await axios(config);
-        if (result.data.success) {
+        if (result.status===200) {
           const userData = {
             firstName: data.firstName,
-            lastName: data.lastname,
+            lastName: data.lastName,
             email: data.email,
+            userName: data.userName,
+            id: data._id,
+            isLoggedIn: true
           };
           await userCtx.login(userData);
           router.push("/home");
@@ -55,46 +53,9 @@ const Signup = () => {
     }
   };
 
-  const getOTP = async (email) => {
-    try {
-      var config = {
-        method: "post",
-        url: "https://colabx-backend-dev.onrender.com/auth/user/signup/otp",
-        headers: {
-          "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "*"
-        },
-        data: email,
-      };
-      const result = await axios(config);
-      console.log(result);
-      if (result.data.success) {
-        setShowOtpSent(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
-  const verifyOTP = async (otp) => {
-    try {
-      var config = {
-        method: "post",
-        url: "https://colabx-backend-dev.onrender.com/auth/user/signup/verify-otp",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: otp,
-      };
-      const result = await axios(config);
-      console.log(result);
-      if (result.data.success) {
-        setShowOtpVerified(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   if (userCtx?.isLoggedIn) {
     userCtx?.isLoggedIn && router.push("/home");
@@ -106,20 +67,6 @@ const Signup = () => {
 
   return (
     <Wrapper colorScheme="dark">
-      <Toast
-        toggleShow={showOtpSent}
-        show={showOtpSent}
-        title="Alert"
-        message="OTP has been sent successfully!"
-        bg="light"
-      />
-      <Toast
-        toggleShow={showOtpVerified}
-        show={showOtpVerified}
-        title="Alert"
-        message="Email has been verified!"
-        bg="success"
-      />
       <Head>
         <title>Welcome to CollabX | CollabX</title>
       </Head>
@@ -128,69 +75,44 @@ const Signup = () => {
           <>
             <h2>Signup to CollabX</h2>
             <Form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-              <p className="text-center">
-                Enter your email address and password.
-              </p>
-              <Form.Group className="mb-4">
-                <Form.Control
-                  {...register("firstName", { required: true })}
-                  placeholder="First name"
-                  type="string"
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-4">
-                <Form.Control
-                  {...register("lastName", { required: true })}
-                  placeholder="Last name"
-                  type="string"
-                  required
-                />
-              </Form.Group>
               <Form.Group className="mb-4">
                 <Row>
-                  <Col xs={8}>
+                  <Col>
                     <Form.Control
-                      {...register("email", { required: true })}
+                      {...register("firstName", { required: true })}
+                      placeholder="First name"
+                      type="string"
                       required
-                      placeholder="Email"
-                      type="email"
                     />
                   </Col>
                   <Col>
-                    <Button
-                      disable={register.email ? true : false}
-                      onClick={() => getOTP(register.email)}
-                      classNames="fs-6"
-                    >
-                      Get OTP
-                    </Button>
+                    <Form.Control
+                      {...register("lastName", { required: true })}
+                      placeholder="Last name"
+                      type="string"
+                      required
+                    />
                   </Col>
                 </Row>
               </Form.Group>
 
               <Form.Group className="mb-4">
-                <Row>
-                  <Col xs={8}>
-                    <Form.Control
-                      required
-                      placeholder="Enter OTP"
-                      type="text"
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                    />
-                  </Col>
-                  <Col>
-                    <Button
-                      onClick={() => verifyOTP(otp)}
-                      classNames="fs-6"
-                      width=""
-                    >
-                      Verify
-                    </Button>
-                  </Col>
-                </Row>
+                <Form.Control
+                  {...register("email", { required: true })}
+                  required
+                  placeholder="Email"
+                  type="email"
+                />
               </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Control
+                  {...register("userName", { required: true })}
+                  required
+                  placeholder="username"
+                  type="text"
+                />
+              </Form.Group>
+
               <Form.Group className="mb-4">
                 <Form.Control
                   {...register("password", { required: true })}
@@ -203,7 +125,7 @@ const Signup = () => {
               </Form.Group>
               <Form.Group className="mb-4">
                 <Form.Control
-                  {...register("confirmPassword", { required: true })}
+                  {...register("passwordConfirm", { required: true })}
                   placeholder="Confirm password"
                   type="password"
                   minLength={8}

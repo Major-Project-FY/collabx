@@ -10,7 +10,7 @@ import Button from "../../UI/Button/Button";
 import styles from "./Navbar.module.css";
 
 const DUMMYIMG =
-  "https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA";
+  "https://static.vecteezy.com/system/resources/previews/008/442/086/large_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
 
 const Menu = () => {
   const user = useContext(UserContext);
@@ -72,7 +72,7 @@ const Navbar = () => {
               <FaBell size={20} color="#0C1011" />
             </span>
             <Link href="/profile">
-              <BImage roundedCircle src={DUMMYIMG} alt="dummy" />
+              <BImage roundedCircle src={DUMMYIMG} alt="user" />
             </Link>
           </>
         )}
@@ -115,7 +115,7 @@ const Navbar = () => {
                       roundedCircle
                       width={50}
                       src={DUMMYIMG}
-                      alt="dummy"
+                      alt="user"
                     />
                   </Link>
                 )}
