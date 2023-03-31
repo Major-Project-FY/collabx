@@ -47,7 +47,7 @@ const CreatePost = ({ id, postData, setPostData }) => {
         bg="light"
       />
       <Row>
-        <Col md={10}>
+        <Col md={12}>
           {" "}
           <Form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <Row>

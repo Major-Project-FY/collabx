@@ -38,7 +38,7 @@ const Home = () => {
       const result = await axios(config);
       if (result.status === 200) {
         console.log("res ",result)
-        setData(result.data);
+        setData(result.data.reverse());
       }
     } catch (error) {
       setShowErr(true);

@@ -4,7 +4,7 @@ import Card from "../../UI/Card/Card";
 import { Row, Col, Image as BImage } from "react-bootstrap";
 import styles from "./PostCard.module.css";
 import { FaUserAlt } from "react-icons/fa";
-
+import Button from "../../UI/Button/Button";
 const PostCard = ({ title, address, description, name, userName }) => {
   return (
     <Card>
@@ -32,11 +32,20 @@ const PostCard = ({ title, address, description, name, userName }) => {
         <Col>
           <div className={styles.description}>
             <h6>{title}</h6>
-            <p>
-             {description}
-            </p>
-            <p>You can find the project link <span><a href={address}>here</a></span></p>
-            
+            <p>{description}</p>
+
+            <div className="d-flex align-items-center justify-content-between">
+                <p>
+                  You can find the project link{" "}
+                  <span>
+                    <a className="text-primary" href={address}>
+                      {address}
+                    </a>
+                  </span>
+                </p>
+              <Button>Collab</Button>
+            </div>
+
             {/* <span className="text-muted">8 Likes . 5 Comments</span> */}
             {/* <hr /> */}
           </div>

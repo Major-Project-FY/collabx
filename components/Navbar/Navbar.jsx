@@ -6,6 +6,7 @@ import Link from "next/link";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { FaBell } from "react-icons/fa";
 import Button from "../../UI/Button/Button";
+import { FaUserAlt } from "react-icons/fa";
 
 import styles from "./Navbar.module.css";
 
@@ -20,7 +21,7 @@ const Menu = () => {
         <Link href="/home">Home</Link>
       </p>
       <p>
-        <a href="#connections">Connections</a>
+        <a href="#collaboration">Collaboration</a>
       </p>
       <p>
         <a href="#messaging">Messaging</a>
@@ -71,8 +72,9 @@ const Navbar = () => {
             <span>
               <FaBell size={20} color="#0C1011" />
             </span>
-            <Link href="/profile">
-              <BImage roundedCircle src={DUMMYIMG} alt="user" />
+            <Link href="/profile" className="cursor-pointer" >
+              {/* <BImage roundedCircle src={DUMMYIMG} alt="user" /> */}
+              <FaUserAlt className="cursor-pointer" size={25}  />
             </Link>
           </>
         )}
