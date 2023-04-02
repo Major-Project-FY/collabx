@@ -11,6 +11,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "axios";
 import styles from "../../../styles/Auth.module.css";
+import GithubLogin from "../github";
 
 const Signup = () => {
   const router = useRouter();
@@ -35,14 +36,14 @@ const Signup = () => {
           data: data,
         };
         const result = await axios(config);
-        if (result.status===200) {
+        if (result.status === 200) {
           const userData = {
             firstName: data.firstName,
             lastName: data.lastName,
             email: data.email,
             userName: data.userName,
             id: data._id,
-            isLoggedIn: true
+            isLoggedIn: true,
           };
           await userCtx.login(userData);
           router.push("/home");
@@ -52,10 +53,6 @@ const Signup = () => {
       }
     }
   };
-
- 
-
-  
 
   if (userCtx?.isLoggedIn) {
     userCtx?.isLoggedIn && router.push("/home");
@@ -140,11 +137,10 @@ const Signup = () => {
               )}
 
               <Button responsive>Signup</Button>
-              <p className="text-center mt-4">Or, signup with GitHub</p>
-              <Button responsive>
-                <FaGithub size="20" className="mb-1" color="#EFEFF1" /> GitHub
-              </Button>
             </Form>
+            <p className="text-center mt-1 mb-0">Or, signup with GitHub</p>
+            <GithubLogin />
+
             <p>
               Already have an account?{" "}
               <Link href="/auth/login">Login instead</Link>

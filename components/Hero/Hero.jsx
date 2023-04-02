@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
 import Image from "next/image";
 import Wrapper from "../../UI/Wrapper/Wrapper";
 import Button from "../../UI/Button/Button";
 import { Row, Col, Container } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
-
+import Toast from "../../UI/Toast/Toast";
 import styles from "./Hero.module.css";
 
 import RIGHTIMG from "../../assets/images/right-shapes.png";
@@ -53,8 +55,46 @@ const allFeatures = [
 ];
 
 const Hero = () => {
+  const router = useRouter();
+  const [showErr, setShowErr] = useState(false);
+
+  const githubLogin = async (code) => {
+    try {
+      var config = {
+        method: "post",
+        url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github/authorize",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: {
+          code: code,
+        },
+      };
+      const result = await axios(config);
+      if (result.data.status === "successful") {
+        router.push("/home");
+      }
+    } catch (error) {
+      setShowErr(true);
+    }
+  };
+
+  useEffect(() => {
+    const code = new URLSearchParams(window.location.search).get("code");
+    if (code) {
+      githubLogin(code);
+    }
+  }, []);
+  
   return (
     <Wrapper>
+      <Toast
+        toggleShow={showErr}
+        show={showErr}
+        title="Alert"
+        message="Something went wrong!"
+        bg="light"
+      />
       <Row>
         <Col sm={12} md={6} className={styles["left-col"]}>
           <div className={styles.content}>
@@ -66,10 +106,12 @@ const Hero = () => {
           </div>
 
           <div className="d-flex align-items-center justify-content-start gap-4 mt-5">
-            <Button>
+            <Button href="/auth/signup">
               Get Started <FaArrowRight className="mb-1" color="#EFEFF1" />
             </Button>
-            <Button lightBg>Login</Button>
+            <Button lightBg href="/auth/login">
+              Login
+            </Button>
           </div>
         </Col>
         <Col className={styles["right-col"]}>
