@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../context/userContext";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Image from "next/image";
@@ -55,10 +56,16 @@ const allFeatures = [
 ];
 
 const Hero = () => {
-  const router = useRouter();
-  const [showErr, setShowErr] = useState(false);
+  // const code = new URLSearchParams(window.location.search).get("code");
+  const userCtx = useContext(UserContext);
 
+  const router = useRouter();
+  const code = router.query.code;
+  const [showErr, setShowErr] = useState(false);
+  console.log("code",code)
+  // const [counter, setCounter] = useState(1);
   const githubLogin = async (code) => {
+    console.log("fun called", code);
     try {
       var config = {
         method: "post",
@@ -72,20 +79,29 @@ const Hero = () => {
       };
       const result = await axios(config);
       if (result.data.status === "successful") {
+        const userData = {
+          firstName: "Durgesh",
+          lastName: "Ahire",
+          email: "durgeshahire07@gmail.com",
+          userName: "durgeshahire07",
+          id: "234243242",
+          isLoggedIn: true,
+        };
+        await userCtx.login(userData);
         router.push("/home");
       }
     } catch (error) {
       setShowErr(true);
     }
   };
-
+  // useEffect(() => {
+  // }, [code]);
   useEffect(() => {
-    const code = new URLSearchParams(window.location.search).get("code");
     if (code) {
       githubLogin(code);
     }
-  }, []);
-  
+  }, [code]);
+
   return (
     <Wrapper>
       <Toast

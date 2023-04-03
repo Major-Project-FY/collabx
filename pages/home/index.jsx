@@ -44,9 +44,27 @@ const Home = () => {
       setShowErr(true);
     }
   };
+
+  const getGithubRepo = async () => {
+    try {
+      var config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/user/github-repos",
+        headers: {},
+      };
+      const result = await axios(config);
+      if (result.status === 200) {
+        console.log("res ",result)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   // console.log(data)
   useEffect(() => {
     getPost();
+    getGithubRepo();
   }, []);
   return (
     <>

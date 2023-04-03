@@ -22,7 +22,6 @@ const GithubLogin = () => {
       const result = await axios(config);
       if (result.status === 200) {
         setGithubURL(result.data.url);
-        router.push(githubURL);
       }
     } catch (error) {
       setShowErr(true);
@@ -30,6 +29,12 @@ const GithubLogin = () => {
     }
   };
 
+  useEffect(() => {
+    if (githubURL) {
+      router.push(githubURL);
+    }
+  }, [githubURL]);
+  
   return (
     <div>
       <Toast
