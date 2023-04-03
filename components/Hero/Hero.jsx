@@ -69,7 +69,7 @@ const Hero = () => {
     try {
       var config = {
         method: "post",
-        url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github/authorize",
+        url: "https://colabx-backend-dev.onrender.com/auth/github/authorize",
         headers: {
           "Content-Type": "application/json",
         },
