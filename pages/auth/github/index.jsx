@@ -14,7 +14,8 @@ const GithubLogin = () => {
     try {
       var config = {
         method: "get",
-        url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github",
+        // url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github",
+        url: "https://colabx-backend-dev.onrender.com/auth/github",
         headers: {
           "Content-Type": "application/json",
         },
