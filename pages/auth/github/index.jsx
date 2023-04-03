@@ -14,7 +14,6 @@ const GithubLogin = () => {
     try {
       var config = {
         method: "get",
-        url: "https://colabx-backend-dev.onrender.com/auth/github",
         // url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github",
         url: "https://colabx-backend-dev.onrender.com/auth/github",
         headers: {
@@ -36,7 +35,7 @@ const GithubLogin = () => {
       router.push(githubURL);
     }
   }, [githubURL]);
-  
+
   return (
     <div>
       <Toast
