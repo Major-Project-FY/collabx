@@ -15,7 +15,7 @@ import { Row, Col } from "react-bootstrap";
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 
-const Home = () => {
+const Home = ({ posts }) => {
   const userCtx = useContext(UserContext);
   // console.log(userCtx.userData);
   const router = useRouter();
@@ -37,7 +37,7 @@ const Home = () => {
       };
       const result = await axios(config);
       if (result.status === 200) {
-        console.log("res ",result)
+        // console.log("res ",result)
         setData(result.data.reverse());
       }
     } catch (error) {
@@ -60,7 +60,11 @@ const Home = () => {
         />
         <Row>
           <Col sm={12} md={7}>
-            <CreatePost postData={data} setPostData={setData} id={userCtx?.userData?.id}/>
+            <CreatePost
+              postData={data}
+              setPostData={setData}
+              id={userCtx?.userData?.id}
+            />
             {data?.map((item) => {
               return (
                 <PostCard
