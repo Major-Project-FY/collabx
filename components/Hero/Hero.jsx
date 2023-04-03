@@ -62,10 +62,10 @@ const Hero = () => {
   const router = useRouter();
   const code = router.query.code;
   const [showErr, setShowErr] = useState(false);
-  console.log("code",code)
+  // console.log("code",code)
   // const [counter, setCounter] = useState(1);
   const githubLogin = async (code) => {
-    console.log("fun called", code);
+    // console.log("fun called", code);
     try {
       var config = {
         method: "post",
