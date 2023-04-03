@@ -1,9 +1,11 @@
-import React from "react";
-
+import React, { useContext,useState } from "react";
+import { UserContext } from "../../../context/userContext";
 import { Form } from "react-bootstrap";
 import styles from "./Profile.module.css";
 
 const BasicDetails = () => {
+  const userCtx = useContext(UserContext);
+  console.log(userCtx?.userData)
   return (
     <Form className={styles["prjects-form"]}>
       <div className={styles["input-group"]}>
@@ -13,6 +15,7 @@ const BasicDetails = () => {
             className="p-0 px-2 py-1"
             placeholder="Enter Unique Username"
             type="text"
+            defaultValue={userCtx?.userData?.userName}
           />
         </Form.Group>
         <Form.Group className={styles["input-area"]}>
@@ -21,6 +24,8 @@ const BasicDetails = () => {
             className="p-0 px-2 py-1"
             placeholder="Enter First Name"
             type="text"
+            defaultValue={userCtx?.userData?.firstName}
+
           />
         </Form.Group>
         <Form.Group className={styles["input-area"]}>
@@ -29,6 +34,8 @@ const BasicDetails = () => {
             className="p-0 px-2 py-1"
             placeholder="Enter Last Name"
             type="text"
+            defaultValue={userCtx?.userData?.lastName}
+
           />
         </Form.Group>
         <Form.Group className={styles["input-area"]}>
@@ -39,6 +46,8 @@ const BasicDetails = () => {
             className="p-0 px-2 py-1"
             placeholder="Enter email address"
             type="email"
+            defaultValue={userCtx?.userData?.email}
+
           />
         </Form.Group>
       </div>

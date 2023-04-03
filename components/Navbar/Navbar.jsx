@@ -6,11 +6,12 @@ import Link from "next/link";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { FaBell } from "react-icons/fa";
 import Button from "../../UI/Button/Button";
+import { FaUserAlt } from "react-icons/fa";
 
 import styles from "./Navbar.module.css";
 
 const DUMMYIMG =
-  "https://media-exp1.licdn.com/dms/image/C5603AQFqtgKogKTQ7w/profile-displayphoto-shrink_800_800/0/1645511337667?e=1672876800&v=beta&t=gedFGWqfbphDuffEaEoVYL2MxYSzsprE5MlYRM1QPqA";
+  "https://static.vecteezy.com/system/resources/previews/008/442/086/large_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
 
 const Menu = () => {
   const user = useContext(UserContext);
@@ -20,7 +21,7 @@ const Menu = () => {
         <Link href="/home">Home</Link>
       </p>
       <p>
-        <a href="#connections">Connections</a>
+        <a href="#collaboration">Collaboration</a>
       </p>
       <p>
         <a href="#messaging">Messaging</a>
@@ -71,8 +72,9 @@ const Navbar = () => {
             <span>
               <FaBell size={20} color="#0C1011" />
             </span>
-            <Link href="/profile">
-              <BImage roundedCircle src={DUMMYIMG} alt="dummy" />
+            <Link href="/profile" className="cursor-pointer" >
+              {/* <BImage roundedCircle src={DUMMYIMG} alt="user" /> */}
+              <FaUserAlt className="cursor-pointer" size={25}  />
             </Link>
           </>
         )}
@@ -115,7 +117,7 @@ const Navbar = () => {
                       roundedCircle
                       width={50}
                       src={DUMMYIMG}
-                      alt="dummy"
+                      alt="user"
                     />
                   </Link>
                 )}

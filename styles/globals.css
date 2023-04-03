@@ -77,3 +77,8 @@ h6 {
   --light-theme-bg: #efeff1;
   --light-theme-text: #0c1011;
 }
+
+
+.cursor-pointer {
+  cursor: pointer;
+}

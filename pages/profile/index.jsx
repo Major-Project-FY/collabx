@@ -1,5 +1,4 @@
 import React from "react";
-
 import Image from "next/image";
 
 import { Col, Row, Tab, Nav, Card as BCard } from "react-bootstrap";
@@ -13,11 +12,12 @@ import Projects from "../../components/ProfilePage/Projects/Projects";
 
 import GITHUBIMG from "../../public/socialIcons/github.png";
 import GITLABIMG from "../../public/socialIcons/gitlab.png";
-import HACKERRANKIMG from "../../public/socialIcons/hackerank.png";
-import LINKEDINIMG from "../../public/socialIcons/linkedin.png";
+// import HACKERRANKIMG from "../../public/socialIcons/hackerank.png";
+// import LINKEDINIMG from "../../public/socialIcons/linkedin.png";
 
 import styles from "../../styles/profile.module.css";
-import WorkDetails from "../../components/ProfilePage/Profile/WorkDetails";
+import EduDetails from "../../components/ProfilePage/Profile/EduDetails";
+import Button from "../../UI/Button/Button";
 
 const socialIntegration = [
   {
@@ -30,19 +30,21 @@ const socialIntegration = [
     title: "Gitlab",
     icon: GITLABIMG,
   },
-  {
-    id: 3,
-    title: "Hackerrank",
-    icon: HACKERRANKIMG,
-  },
-  {
-    id: 4,
-    title: "Linkedin",
-    icon: LINKEDINIMG,
-  },
+  // {
+  //   id: 3,
+  //   title: "Hackerrank",
+  //   icon: HACKERRANKIMG,
+  // },
+  // {
+  //   id: 4,
+  //   title: "Linkedin",
+  //   icon: LINKEDINIMG,
+  // },
 ];
 
-const index = () => {
+const Index = () => {
+  // const userCtx = useContext(UserContext);
+  // console.log(userCtx?.userData)
   return (
     <div className={styles.container}>
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -80,26 +82,9 @@ const index = () => {
                 </div>
               </Tab.Pane>
               <Tab.Pane as="div" eventKey="second">
-                <BCard bg="transparent">
-                  <BCard.Header className={`${styles["card-header"]} ps-4`}>
-                    Profile Integration
-                  </BCard.Header>
-                  <BCard.Body className="p-4" as="div">
-                    <BCard.Text>
-                      Integrate your accounts to showcase your projects, enhance
-                      your profile and explore the skills analysis section
-                    </BCard.Text>
-                    <div className={styles["social-icons"]}>
-                      {socialIntegration.map((data) => (
-                        <IconCard
-                          key={data.id}
-                          title={data.title}
-                          icon={data.icon}
-                        />
-                      ))}
-                    </div>
-                  </BCard.Body>
-                </BCard>
+                <ProfileIntegration socialIntegration={socialIntegration} />
+                <br />
+                <Roadmap />
               </Tab.Pane>
               <Tab.Pane as="div" eventKey="third">
                 <BCard bg="transparent">
@@ -116,6 +101,59 @@ const index = () => {
         </Row>
       </Tab.Container>
     </div>
+  );
+};
+
+const Roadmap = () => {
+  return (
+    <BCard bg="transparent">
+      <BCard.Header className={`${styles["card-header"]} ps-4`}>
+        DevRoadmaps
+      </BCard.Header>
+      <BCard.Body className="p-4" as="div">
+        <BCard.Text className="fw-bold">Role based roadmaps</BCard.Text>
+        <div className="d-flex align-items-center gap-3 flex-wrap mb-3">
+          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/frontend">Frontend</Button>
+          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/backend">Backend</Button>
+          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/cyber-security">Cyber Security</Button>
+          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/postgresql-dba">DBA</Button>
+
+        </div>
+
+        <BCard.Text className="fw-bold">Skill based roadmaps</BCard.Text>
+        <div className="d-flex align-items-center gap-3 flex-wrap mb-3">
+          <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/react">React</Button>
+          <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/nodejs">Node.js</Button>
+          {/* <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/frontend">MongoDB</Button> */}
+        </div>
+        {/* <div className={styles["social-icons"]}>
+          {socialIntegration.map((data) => (
+            <IconCard key={data.id} title={data.title} icon={data.icon} />
+          ))}
+        </div> */}
+      </BCard.Body>
+    </BCard>
+  );
+};
+
+const ProfileIntegration = ({ socialIntegration }) => {
+  return (
+    <BCard bg="transparent">
+      <BCard.Header className={`${styles["card-header"]} ps-4`}>
+        Profile Integration
+      </BCard.Header>
+      <BCard.Body className="p-4" as="div">
+        <BCard.Text>
+          Integrate your accounts to showcase your projects, enhance your
+          profile and explore the skills analysis section
+        </BCard.Text>
+        <div className={styles["social-icons"]}>
+          {socialIntegration.map((data) => (
+            <IconCard key={data.id} title={data.title} icon={data.icon} />
+          ))}
+        </div>
+      </BCard.Body>
+    </BCard>
   );
 };
 
@@ -142,4 +180,4 @@ const IconCard = ({ title, icon }) => {
   );
 };
 
-export default index;
+export default Index;
