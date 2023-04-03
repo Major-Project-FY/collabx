@@ -16,8 +16,6 @@ import GITLABIMG from "../../public/socialIcons/gitlab.png";
 // import LINKEDINIMG from "../../public/socialIcons/linkedin.png";
 
 import styles from "../../styles/profile.module.css";
-import EduDetails from "../../components/ProfilePage/Profile/EduDetails";
-import Button from "../../UI/Button/Button";
 
 const socialIntegration = [
   {
@@ -73,9 +71,9 @@ const Index = () => {
                   <EduDetails />
                 </DetailCards>
 
-                <DetailCards title="Work Experience">
+                {/* <DetailCards title="Work Experience">
                   <WorkDetails />
-                </DetailCards>
+                </DetailCards> */}
 
                 <div className="d-flex align-items-center justify-content-center mb-5">
                   <Button>Save</Button>
@@ -113,17 +111,46 @@ const Roadmap = () => {
       <BCard.Body className="p-4" as="div">
         <BCard.Text className="fw-bold">Role based roadmaps</BCard.Text>
         <div className="d-flex align-items-center gap-3 flex-wrap mb-3">
-          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/frontend">Frontend</Button>
-          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/backend">Backend</Button>
-          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/cyber-security">Cyber Security</Button>
-          <Button className="px-5 py-3 bg-primary w-25" href="http://localhost:3001/postgresql-dba">DBA</Button>
-
+          <Button
+            className="px-5 py-3 bg-primary w-25"
+            href="http://localhost:3001/frontend"
+          >
+            Frontend
+          </Button>
+          <Button
+            className="px-5 py-3 bg-primary w-25"
+            href="http://localhost:3001/backend"
+          >
+            Backend
+          </Button>
+          <Button
+            className="px-5 py-3 bg-primary w-25"
+            href="http://localhost:3001/cyber-security"
+          >
+            Cyber Security
+          </Button>
+          <Button
+            className="px-5 py-3 bg-primary w-25"
+            href="http://localhost:3001/postgresql-dba"
+          >
+            DBA
+          </Button>
         </div>
 
         <BCard.Text className="fw-bold">Skill based roadmaps</BCard.Text>
         <div className="d-flex align-items-center gap-3 flex-wrap mb-3">
-          <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/react">React</Button>
-          <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/nodejs">Node.js</Button>
+          <Button
+            className="px-5 py-3 bg-primary w-25"
+            href="http://localhost:3001/react"
+          >
+            React
+          </Button>
+          <Button
+            className="px-5 py-3 bg-primary w-25"
+            href="http://localhost:3001/nodejs"
+          >
+            Node.js
+          </Button>
           {/* <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/frontend">MongoDB</Button> */}
         </div>
         {/* <div className={styles["social-icons"]}>
