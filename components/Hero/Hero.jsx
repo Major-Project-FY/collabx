@@ -62,14 +62,14 @@ const Hero = () => {
   const router = useRouter();
   const code = router.query.code;
   const [showErr, setShowErr] = useState(false);
-  console.log("code",code)
+  // console.log("code",code)
   // const [counter, setCounter] = useState(1);
   const githubLogin = async (code) => {
-    console.log("fun called", code);
+    // console.log("fun called", code);
     try {
       var config = {
         method: "post",
-        url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github/authorize",
+        url: "https://colabx-backend-dev.onrender.com/auth/github/authorize",
         headers: {
           "Content-Type": "application/json",
         },
