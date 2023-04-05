@@ -76,6 +76,7 @@ const Hero = () => {
         data: {
           code: code,
         },
+        withCredentials: true,
       };
       const result = await axios(config);
       if (result.data.status === "successful") {
