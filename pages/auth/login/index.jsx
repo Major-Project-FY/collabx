@@ -23,6 +23,7 @@ const Login = () => {
       var config = {
         method: "post",
         url: "https://colabx-backend-dev.onrender.com/api/auth/user/login",
+        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },

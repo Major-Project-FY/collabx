@@ -70,13 +70,13 @@ const Hero = () => {
       var config = {
         method: "post",
         url: "https://colabx-backend-dev.onrender.com/auth/github/authorize",
+        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
         data: {
           code: code,
         },
-        withCredentials: true,
       };
       const result = await axios(config);
       if (result.data.status === "successful") {
