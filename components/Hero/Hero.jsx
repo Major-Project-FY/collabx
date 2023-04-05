@@ -81,11 +81,11 @@ const Hero = () => {
       const result = await axios(config);
       if (result.data.status === "successful") {
         const userData = {
-          firstName: "Durgesh",
-          lastName: "Ahire",
-          email: "durgeshahire07@gmail.com",
-          userName: "durgeshahire07",
-          id: "234243242",
+          firstName: "first name",
+          lastName: "last name",
+          email: "email",
+          userName: "username",
+          id: "id",
           isLoggedIn: true,
         };
         await userCtx.login(userData);

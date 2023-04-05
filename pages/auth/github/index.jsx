@@ -19,6 +19,7 @@ const GithubLogin = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: true,
       };
       const result = await axios(config);
       if (result.status === 200) {

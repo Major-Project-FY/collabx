@@ -52,6 +52,7 @@ const Home = ({ posts }) => {
         maxBodyLength: Infinity,
         url: "https://colabx-backend-dev.onrender.com/user/github-repos",
         headers: {},
+        withCredentials: true,
       };
       const result = await axios(config);
       if (result.status === 200) {
