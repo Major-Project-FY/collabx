@@ -15,6 +15,9 @@ import { Row, Col } from "react-bootstrap";
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 
+const BACKEND_GITHUB_REPOS =
+  "https://colabx-backend-dev.onrender.com/user/github-repos";
+
 const Home = ({ posts }) => {
   const userCtx = useContext(UserContext);
   // console.log(userCtx.userData);
@@ -47,21 +50,26 @@ const Home = ({ posts }) => {
 
   const getGithubRepo = async () => {
     try {
-      var config = {
-        method: "get",
-        maxBodyLength: Infinity,
-        url: "https://colabx-backend-dev.onrender.com/user/github-repos",
-        headers: {},
+      // var config = {
+      //   method: "get",
+      //   maxBodyLength: Infinity,
+      //   url: "https://colabx-backend-dev.onrender.com/user/github-repos",
+      //   headers: {},
+      //   withCredentials: true,
+      // };
+      // const result = await axios(config);
+
+      const result = await axios.get(BACKEND_GITHUB_REPOS, {
         withCredentials: true,
-      };
-      const result = await axios(config);
+      });
+
       if (result.status === 200) {
-        console.log("res ",result)
+        console.log("res ", result);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   // console.log(data)
   useEffect(() => {
     getPost();
