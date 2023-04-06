@@ -22,26 +22,27 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      // var config = {
-      //   method: "post",
-      //   url: "https://colabx-backend-dev.onrender.com/api/auth/user/login",
-      //   withCredentials: true,
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   data: data,
-      // };
+      var config = {
+        method: "post",
+        url: "https://colabx-backend-dev.onrender.com/api/auth/user/login",
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/json",
+          "access-control-allow-credentials": true,
+        },
+        data: data,
+      };
 
       // console.log(data)
       // const result = await axios(config);
 
-      const result = await axios.post(
-        BACKENDAUTH,
-        { data },
-        {
-          withCredentials: true,
-        }
-      );
+      // const result = await axios.post(
+      //   BACKENDAUTH,
+      //   { data },
+      //   {
+      //     withCredentials: true,
+      //   }
+      // );
 
       console.log("res", result);
       if (result.status === 200) {

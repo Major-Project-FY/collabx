@@ -14,21 +14,22 @@ const GithubLogin = () => {
 
   const loginWithGithub = async () => {
     try {
-      // var config = {
-      //   method: "get",
-      //   // url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github",
-      //   withCredentials: true,
-      //   url: "https://colabx-backend-dev.onrender.com/auth/github",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   withCredentials: true,
-      // };
-      // const result = await axios(config);
-
-      const result = await axios.get(BACKENDGITHUB, {
+      var config = {
+        method: "get",
+        // url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github",
         withCredentials: true,
-      });
+        url: "https://colabx-backend-dev.onrender.com/auth/github",
+        headers: {
+          "Content-Type": "application/json",
+          "access-control-allow-credentials": true,
+        },
+        withCredentials: true,
+      };
+      const result = await axios(config);
+
+      // const result = await axios.get(BACKENDGITHUB, {
+      //   withCredentials: true,
+      // });
 
       if (result.status === 200) {
         setGithubURL(result.data.url);

@@ -39,6 +39,7 @@ const Home = ({ posts }) => {
         headers: {},
       };
       const result = await axios(config);
+
       if (result.status === 200) {
         // console.log("res ",result)
         setData(result.data.reverse());
@@ -50,18 +51,20 @@ const Home = ({ posts }) => {
 
   const getGithubRepo = async () => {
     try {
-      // var config = {
-      //   method: "get",
-      //   maxBodyLength: Infinity,
-      //   url: "https://colabx-backend-dev.onrender.com/user/github-repos",
-      //   headers: {},
-      //   withCredentials: true,
-      // };
-      // const result = await axios(config);
-
-      const result = await axios.get(BACKEND_GITHUB_REPOS, {
+      var config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: "https://colabx-backend-dev.onrender.com/user/github-repos",
+        headers: {
+          "access-control-allow-credentials": true,
+        },
         withCredentials: true,
-      });
+      };
+      const result = await axios(config);
+
+      // const result = await axios.get(BACKEND_GITHUB_REPOS, {
+      //   withCredentials: true,
+      // });
 
       if (result.status === 200) {
         console.log("res ", result);
