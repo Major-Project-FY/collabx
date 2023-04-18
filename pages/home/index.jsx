@@ -14,6 +14,7 @@ import { Row, Col } from "react-bootstrap";
 
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
+import Config from "../../config";
 
 const BACKEND_GITHUB_REPOS =
   "https://colabx-backend-dev.onrender.com/user/github-repos";
@@ -54,7 +55,7 @@ const Home = ({ posts }) => {
       var config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: "https://colabx-backend-dev.onrender.com/user/github-repos",
+        url: `${Config.root + Config.user.githubRepos}`,
         headers: {
           "access-control-allow-credentials": true,
         },

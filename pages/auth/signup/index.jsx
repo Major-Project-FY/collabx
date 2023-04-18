@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import styles from "../../../styles/Auth.module.css";
 import GithubLogin from "../github";
+import Config from "../../../config";
 
 const Signup = () => {
   const router = useRouter();
@@ -29,7 +30,7 @@ const Signup = () => {
       try {
         var config = {
           method: "post",
-          url: "https://collabx-backend.onrender.com/api/auth/user/signup",
+          url: `${Config.root + Config.auth.signup}`,
           headers: {
             "Content-Type": "application/json",
           },

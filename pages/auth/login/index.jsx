@@ -11,6 +11,7 @@ import Head from "next/head";
 import axios from "axios";
 import styles from "../../../styles/Auth.module.css";
 import GithubLogin from "../github";
+import Config from "../../../config";
 
 let BACKENDAUTH = "https://colabx-backend-dev.onrender.com/api/auth/user/login";
 
@@ -24,7 +25,7 @@ const Login = () => {
     try {
       var config = {
         method: "post",
-        url: "https://colabx-backend-dev.onrender.com/api/auth/user/login",
+        url: `${Config.root + Config.auth.login}`,
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +35,7 @@ const Login = () => {
       };
 
       // console.log(data)
-      // const result = await axios(config);
+      const result = await axios(config);
 
       // const result = await axios.post(
       //   BACKENDAUTH,

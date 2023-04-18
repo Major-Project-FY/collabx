@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Button from "../../../UI/Button/Button";
 import Toast from "../../../UI/Toast/Toast";
+import Config from "../../../config";
 
 
 const GithubLogin = () => {
@@ -17,7 +18,7 @@ const GithubLogin = () => {
         method: "get",
         // url: "http://ec2-35-173-200-23.compute-1.amazonaws.com/auth/github",
         withCredentials: true,
-        url: "https://api.collabx.tech/auth/github",
+        url: `${Config.root + Config.auth.github}`,
         headers: {
           "Content-Type": "application/json",
           "access-control-allow-credentials": true,
