@@ -9,6 +9,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import Toast from "../../UI/Toast/Toast";
 import styles from "./Hero.module.css";
+import Config from "../../config"
 
 import RIGHTIMG from "../../assets/images/right-shapes.png";
 import AVATAR from "../../assets/images/avatar.png";
@@ -69,7 +70,8 @@ const Hero = () => {
     try {
       var config = {
         method: "post",
-        url: "https://colabx-backend-dev.onrender.com/auth/github/authorize",
+        // url: "https://colabx-backend-dev.onrender.com/auth/github/authorize",
+        url: `${Config.root + Config.auth.githubAuthorize}`,
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
