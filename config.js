@@ -6,7 +6,7 @@ const Config = {
     signupOtp: "/auth/user/signup/otp",
     verifyOtp: "/auth/user/signup/verify-otp",
     github: "/auth/github",
-    githubAuthorize: "/github/authorize",
+    githubAuthorize: "/auth/github/authorize",
   },
   user: {
     githubInfo: "/user/github-info",

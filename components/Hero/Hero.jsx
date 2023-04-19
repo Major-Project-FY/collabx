@@ -68,6 +68,7 @@ const Hero = () => {
   const githubLogin = async (code) => {
     // console.log("fun called", code);
     try {
+      console.log(`${Config.root + Config.auth.githubAuthorize}`);
       var config = {
         method: "post",
         // url: "https://colabx-backend-dev.onrender.com/auth/github/authorize",
