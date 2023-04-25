@@ -36,13 +36,13 @@ const Home = ({ posts }) => {
       var config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: "https://collabx-backend.onrender.com/api/project/list",
+        url: `${Config.root + Config.post.list}`,
         headers: {},
       };
       const result = await axios(config);
 
       if (result.status === 200) {
-        // console.log("res ",result)
+        console.log("res ",result)
         setData(result.data.reverse());
       }
     } catch (error) {

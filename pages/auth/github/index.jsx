@@ -6,7 +6,6 @@ import Button from "../../../UI/Button/Button";
 import Toast from "../../../UI/Toast/Toast";
 import Config from "../../../config";
 
-
 const GithubLogin = () => {
   const [githubURL, setGithubURL] = useState(null);
   const [showErr, setShowErr] = useState(false);

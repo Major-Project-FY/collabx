@@ -9,22 +9,31 @@ import styles from "./CreatePost.module.css";
 import Toast from "../../UI/Toast/Toast";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Config from "../../config";
 
 const CreatePost = ({ id, postData, setPostData }) => {
   const [showErr, setShowErr] = useState(false);
   const { register, handleSubmit } = useForm();
-  console.log(id)
+  console.log(id);
   const onSubmit = async (data) => {
     // postData(...postData, [data]);
+    const { link, ...rest } = data;
+
+    const postData = {
+      ...rest,
+      links: [link],
+    };
+
+    console.log(postData)
 
     try {
       var config = {
         method: "post",
-        url: `https://collabx-backend.onrender.com/api/project/create/${id}`,
+        url: `${Config.root + Config.post.createNew}`,
         headers: {
           "Content-Type": "application/json",
         },
-        data: data
+        data: data,
       };
       const result = await axios(config);
       // console.log("res", result);
@@ -73,7 +82,7 @@ const CreatePost = ({ id, postData, setPostData }) => {
 
             <Form.Group className="mb-2">
               <Form.Control
-                {...register("address", { required: true })}
+                {...register("link", { required: true })}
                 placeholder="Project link"
                 type="text"
               />
