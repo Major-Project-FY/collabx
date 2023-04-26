@@ -17,6 +17,8 @@ import GITLABIMG from "../../public/socialIcons/gitlab.png";
 
 import styles from "../../styles/profile.module.css";
 import Ranking from "../../components/Ranking/Ranking";
+import { FaCheck } from "react-icons/fa";
+import Config from "../../config";
 
 const socialIntegration = [
   {
@@ -216,7 +218,11 @@ const IconCard = ({ title, icon }) => {
         <p className="mt-3">{title}</p>
       </div>
       <span>
-        <BsFillPlusCircleFill size={30} />
+        {title === "Github" ? (
+          <FaCheck size={30} />
+        ) : (
+          <BsFillPlusCircleFill size={30} />
+        )}
       </span>
     </div>
   );

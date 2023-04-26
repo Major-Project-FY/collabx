@@ -1,5 +1,12 @@
 const env = process.env.NODE_ENV;
 
+let myValue;
+
+if (typeof window !== "undefined") {
+  // Access localStorage here
+  myValue = localStorage.getItem("githubAuth");
+}
+
 const Config = {
   root:
     env === "development"
@@ -17,7 +24,7 @@ const Config = {
     githubInfo: "/user/github-info",
     githubRepos: "/user/github-repos",
     basicInfo: "/user/basic-info",
-    ranking: "/user/ranking"
+    ranking: "/user/ranking",
   },
   post: {
     list: "/posts",
@@ -25,6 +32,8 @@ const Config = {
     createNew: "/posts/post",
   },
   env: process.env.NODE_ENV,
+
+  isGithubAuth: myValue,
 };
 
 export default Config;

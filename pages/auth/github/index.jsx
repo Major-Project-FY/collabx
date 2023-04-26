@@ -32,10 +32,13 @@ const GithubLogin = () => {
 
       if (result.status === 200) {
         setGithubURL(result.data.url);
+        localStorage.setItem("githubAuth", true);
       }
     } catch (error) {
       setShowErr(true);
       console.log(error); //remove
+      localStorage.setItem("githubAuth", true);
+
     }
   };
 
