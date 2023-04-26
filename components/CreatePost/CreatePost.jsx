@@ -24,7 +24,7 @@ const CreatePost = ({ id, postData, setPostData }) => {
       links: [link],
     };
 
-    console.log(postData)
+    console.log(postData);
 
     try {
       var config = {
@@ -34,6 +34,7 @@ const CreatePost = ({ id, postData, setPostData }) => {
           "Content-Type": "application/json",
         },
         data: data,
+        withCredentials: true,
       };
       const result = await axios(config);
       // console.log("res", result);

@@ -35,6 +35,8 @@ const Signup = () => {
             "Content-Type": "application/json",
           },
           data: data,
+          withCredentials: true,
+
         };
         const result = await axios(config);
         if (result.status === 200) {
