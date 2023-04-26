@@ -16,6 +16,7 @@ import GITLABIMG from "../../public/socialIcons/gitlab.png";
 // import LINKEDINIMG from "../../public/socialIcons/linkedin.png";
 
 import styles from "../../styles/profile.module.css";
+import Ranking from "../../components/Ranking/Ranking";
 
 const socialIntegration = [
   {
@@ -58,6 +59,9 @@ const Index = () => {
               <Nav.Item>
                 <Nav.Link eventKey="third">Projects</Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="fourth">Ranking</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Col>
           <Col sm={1}></Col>
@@ -91,6 +95,17 @@ const Index = () => {
                   </BCard.Header>
                   <BCard.Body as="div">
                     <Projects />
+                  </BCard.Body>
+                </BCard>
+              </Tab.Pane>
+
+              <Tab.Pane as="div" eventKey="fourth">
+                <BCard bg="transparent">
+                  <BCard.Header className={styles["card-header"]}>
+                    Current User Ranking
+                  </BCard.Header>
+                  <BCard.Body as="div">
+                    <Ranking />
                   </BCard.Body>
                 </BCard>
               </Tab.Pane>

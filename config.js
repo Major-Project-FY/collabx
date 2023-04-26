@@ -17,6 +17,7 @@ const Config = {
     githubInfo: "/user/github-info",
     githubRepos: "/user/github-repos",
     basicInfo: "/user/basic-info",
+    ranking: "/user/ranking"
   },
   post: {
     list: "/posts",

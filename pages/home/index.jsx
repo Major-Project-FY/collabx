@@ -43,7 +43,7 @@ const Home = ({ posts }) => {
       const result = await axios(config);
 
       if (result.status === 200) {
-        console.log("res ",result)
+        console.log("res ", result);
         setData(result.data.reverse());
       }
     } catch (error) {
@@ -100,12 +100,12 @@ const Home = ({ posts }) => {
             {data?.map((item) => {
               return (
                 <PostCard
-                  key={item?._id}
-                  title={item?.title}
-                  address={item?.address}
+                  key={item?.id}
+                  title={item?.post_title}
+                  address={item?.project_urls[0]}
                   description={item?.description}
-                  name={`${item?.user?.firstName}${" "}${item?.user?.lastName}`}
-                  userName={item?.user?.userName}
+                  name={`${item?.name}`}
+                  // userName={item?.user?.userName}
                 />
               );
             })}
