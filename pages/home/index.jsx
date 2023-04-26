@@ -36,6 +36,7 @@ const Home = ({ posts }) => {
       var config = {
         method: "get",
         maxBodyLength: Infinity,
+        withCredentials: true,
         url: `${Config.root + Config.post.list}`,
         headers: {},
       };
