@@ -38,7 +38,6 @@ const Home = ({ posts }) => {
         maxBodyLength: Infinity,
         withCredentials: true,
         url: `${Config.root + Config.post.list}`,
-        headers: {},
       };
       const result = await axios(config);
 
@@ -56,7 +55,6 @@ const Home = ({ posts }) => {
         maxBodyLength: Infinity,
         withCredentials: true,
         url: `${Config.root + Config.user.recommendations}`,
-        headers: {},
       };
       const result = await axios(config);
 
@@ -120,11 +118,11 @@ const Home = ({ posts }) => {
             {data?.map((item) => {
               return (
                 <PostCard
-                  key={item?.id}
-                  title={item?.post_title}
-                  address={item?.project_urls[0]}
-                  description={item?.description}
-                  name={`${item?.name}`}
+                  key={item?.projectID}
+                  title={item?.postTitle}
+                  address={item?.projectURLs[0]}
+                  description={item?.postDescription}
+                  name={`${item?.users?.name}`}
                   // userName={item?.user?.userName}
                 />
               );
