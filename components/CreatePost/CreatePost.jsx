@@ -32,7 +32,7 @@ const CreatePost = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        data: data,
+        data: postData,
         withCredentials: true,
       };
       const result = await axios(config);

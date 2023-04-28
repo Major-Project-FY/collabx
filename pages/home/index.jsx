@@ -16,7 +16,6 @@ import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Config from "../../config";
 
-
 const Home = ({ posts }) => {
   const userCtx = useContext(UserContext);
   // console.log(userCtx.userData);
@@ -108,11 +107,7 @@ const Home = ({ posts }) => {
         />
         <Row>
           <Col sm={12} md={7}>
-            <CreatePost
-              postData={data}
-              setPostData={setData}
-              id={userCtx?.userData?.id}
-            />
+            <CreatePost />
             {data?.map((item) => {
               return (
                 <PostCard
