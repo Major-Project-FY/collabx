@@ -127,6 +127,14 @@ const Home = ({ posts }) => {
                 />
               );
             })}
+            <PostCard
+              key={`kajskdjf`}
+              title="Tesla"
+              address="http://www.elon.musk.com"
+              description="Elon musk is a musk made for men"
+              name={`Elon Musk`}
+              // userName={item?.user?.userName}
+            />
           </Col>
           <Col>
             <SearchBar />
