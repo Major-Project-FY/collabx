@@ -16,8 +16,6 @@ import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Config from "../../config";
 
-const BACKEND_GITHUB_REPOS =
-  "https://colabx-backend-dev.onrender.com/user/github-repos";
 
 const Home = ({ posts }) => {
   const userCtx = useContext(UserContext);
