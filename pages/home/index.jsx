@@ -16,9 +16,6 @@ import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Config from "../../config";
 
-const BACKEND_GITHUB_REPOS =
-  "https://colabx-backend-dev.onrender.com/user/github-repos";
-
 const Home = ({ posts }) => {
   const userCtx = useContext(UserContext);
   // console.log(userCtx.userData);
@@ -110,17 +107,13 @@ const Home = ({ posts }) => {
         />
         <Row>
           <Col sm={12} md={7}>
-            <CreatePost
-              postData={data}
-              setPostData={setData}
-              id={userCtx?.userData?.id}
-            />
+            <CreatePost />
             {data?.map((item) => {
               return (
                 <PostCard
                   key={item?.projectID}
                   title={item?.postTitle}
-                  address={item?.projectURLs[0]}
+                  address={item?.projectURLs[0] ?? "no source provided"}
                   description={item?.postDescription}
                   name={`${item?.users?.name}`}
                   // userName={item?.user?.userName}

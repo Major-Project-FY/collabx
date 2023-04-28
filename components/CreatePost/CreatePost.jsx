@@ -11,10 +11,9 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Config from "../../config";
 
-const CreatePost = ({ id, postData, setPostData }) => {
+const CreatePost = () => {
   const [showErr, setShowErr] = useState(false);
   const { register, handleSubmit } = useForm();
-  console.log(id);
   const onSubmit = async (data) => {
     // postData(...postData, [data]);
     const { link, ...rest } = data;
@@ -33,11 +32,11 @@ const CreatePost = ({ id, postData, setPostData }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        data: data,
+        data: postData,
         withCredentials: true,
       };
       const result = await axios(config);
-      // console.log("res", result);
+      console.log("create post result", result);
       if (result.status === 200) {
         window.location.reload();
         // postData([...postData, data]);

@@ -5,7 +5,7 @@ import { Row, Col, Image as BImage } from "react-bootstrap";
 import styles from "./PostCard.module.css";
 import { FaUserAlt } from "react-icons/fa";
 import Button from "../../UI/Button/Button";
-const PostCard = ({ title, address, description, name, userName }) => {
+const PostCard = ({ title, description, name, address }) => {
   return (
     <Card>
       <Row className="d-flex align-items-start justify-content-start">
@@ -15,7 +15,6 @@ const PostCard = ({ title, address, description, name, userName }) => {
         <Col md={8} sm={7} xs={8} className={styles["profile-description"]}>
           <div className={styles.content}>
             <h4>{name}</h4>
-            <p>{userName}</p>
             {/* <p className={`${styles["content-time"]} text-muted`}>3 hrs</p> */}
           </div>
         </Col>
