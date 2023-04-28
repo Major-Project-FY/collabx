@@ -69,7 +69,6 @@ const Index = () => {
           <Col sm={1}></Col>
           <Col className={styles["right-col"]} sm={8}>
             <Tab.Content>
-              
               <Tab.Pane as="div" eventKey="first">
                 <DetailCards title="Basic Details">
                   <BasicDetails />
@@ -86,25 +85,25 @@ const Index = () => {
                   <Button>Save</Button>
                 </div>
               </Tab.Pane>
-              
+
               <Tab.Pane as="div" eventKey="second">
                 <ProfileIntegration socialIntegration={socialIntegration} />
                 <br />
                 <BCard bg="transparent">
                   <BCard.Header className={styles["card-header"]}>
-                    Current User Ranking
+                    Profile Analysis
                   </BCard.Header>
+
                   <BCard.Body as="div">
                     <Ranking />
                   </BCard.Body>
+
                 </BCard>
                 <br />
 
                 <Roadmap />
-               
               </Tab.Pane>
-              
-              
+
               <Tab.Pane as="div" eventKey="third">
                 <BCard bg="transparent">
                   <BCard.Header className={styles["card-header"]}>
