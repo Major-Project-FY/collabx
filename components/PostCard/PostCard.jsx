@@ -5,12 +5,19 @@ import { Row, Col, Image as BImage } from "react-bootstrap";
 import styles from "./PostCard.module.css";
 import { FaUserAlt } from "react-icons/fa";
 import Button from "../../UI/Button/Button";
+import { getRandomColor } from "../../utils/getRandomColor";
+import { BsThreeDots } from "react-icons/bs";
 const PostCard = ({ title, description, name, address }) => {
   return (
     <Card>
       <Row className="d-flex align-items-start justify-content-start">
         <Col md={2} sm={2} xs={2} className={styles["profile-image"]}>
-          <FaUserAlt size={35} className="ms-3 mt-1" />
+          <div
+            style={{ backgroundColor: `${getRandomColor()}` }}
+            className={styles["dummy-img"]}
+          >
+            {name.slice(0)[0] + name.split(" ")[1][0] }
+          </div>
         </Col>
         <Col md={8} sm={7} xs={8} className={styles["profile-description"]}>
           <div className={styles.content}>
@@ -24,9 +31,10 @@ const PostCard = ({ title, description, name, address }) => {
           xs={2}
           className={`${styles["three-dots"]} d-flex align-items-center justify-content-end`}
         >
-          <span>{/* <BsThreeDots size={20} /> */}</span>
+          <span><BsThreeDots size={20} /></span>
         </Col>
       </Row>
+
       <Row>
         <Col>
           <div className={styles.description}>
@@ -34,14 +42,14 @@ const PostCard = ({ title, description, name, address }) => {
             <p>{description}</p>
 
             <div className="d-flex align-items-center justify-content-between">
-                <p>
-                  You can find the project link{" "}
-                  <span>
-                    <a className="text-primary" href={address}>
-                      {address}
-                    </a>
-                  </span>
-                </p>
+              <p>
+                You can find the project link{" "}
+                <span>
+                  <a className="text-primary" href={address}>
+                    {address}
+                  </a>
+                </span>
+              </p>
               <Button>Collab</Button>
             </div>
 
