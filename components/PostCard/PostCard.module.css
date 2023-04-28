@@ -8,6 +8,26 @@
   font-size: 1.2rem;
 }
 
+.profile-description {
+  margin-left: -1.6rem;
+  margin-top: .5rem;
+}
+
+.dummy-img {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  /* background-color: green; */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1rem;
+
+  font-size: 1.2rem;
+}
+
 .content p {
   font-size: 0.9rem;
   margin-top: -8px;
@@ -75,10 +95,8 @@
   }
 }
 
-
 @media screen and (max-width: 1280px) {
-    .content {
-        margin-left: 1rem;
-
-    }
+  .content {
+    margin-left: 1rem;
+  }
 }
