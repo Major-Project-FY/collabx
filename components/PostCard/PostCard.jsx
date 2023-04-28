@@ -5,7 +5,7 @@ import { Row, Col, Image as BImage } from "react-bootstrap";
 import styles from "./PostCard.module.css";
 import { FaUserAlt } from "react-icons/fa";
 import Button from "../../UI/Button/Button";
-const PostCard = ({ title, address, description, name }) => {
+const PostCard = ({ title, description, name }) => {
   return (
     <Card>
       <Row className="d-flex align-items-start justify-content-start">
@@ -37,9 +37,9 @@ const PostCard = ({ title, address, description, name }) => {
                 <p>
                   You can find the project link{" "}
                   <span>
-                    <a className="text-primary" href={address}>
+                    {/* <a className="text-primary" href={address}>
                       {address}
-                    </a>
+                    </a> */}
                   </span>
                 </p>
               <Button>Collab</Button>
