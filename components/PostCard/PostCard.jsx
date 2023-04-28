@@ -1,13 +1,27 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Card from "../../UI/Card/Card";
 import { Row, Col, Image as BImage } from "react-bootstrap";
 import styles from "./PostCard.module.css";
-import { FaUserAlt } from "react-icons/fa";
 import Button from "../../UI/Button/Button";
 import { getRandomColor } from "../../utils/getRandomColor";
 import { BsThreeDots } from "react-icons/bs";
 const PostCard = ({ title, description, name, address }) => {
+  // console.log(name.split(" "))
+  const [initals,setInitals] = useState("");
+  
+  useEffect(()=>{
+    if(name?.split(" ").length===1){
+      let fname = name?.split(" ")[0];
+      setInitals(fname[0])
+    }
+    else{
+      let fname = name?.split(" ")[0];
+      let lname = name?.split(" ")[1];
+      setInitals(fname[0]+lname[0])
+    }
+  },[name])
+
   return (
     <Card>
       <Row className="d-flex align-items-start justify-content-start">
@@ -16,7 +30,8 @@ const PostCard = ({ title, description, name, address }) => {
             style={{ backgroundColor: `${getRandomColor()}` }}
             className={styles["dummy-img"]}
           >
-            {name.slice(0)[0] + name.split(" ")[1][0] }
+            {initals}
+            {/* {name.slice(0)[0] + name?.split(" ")[1] ? name?.split(" ")[1][0] : "" } */}
           </div>
         </Col>
         <Col md={8} sm={7} xs={8} className={styles["profile-description"]}>

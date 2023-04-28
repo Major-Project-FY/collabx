@@ -6,6 +6,7 @@ import { Badge, Image } from "react-bootstrap";
 const Ranking = () => {
   const [rank, setRank] = useState("");
   const [username, setUsername] = useState("");
+  
   const getRanking = async () => {
     var config = {
       method: "get",

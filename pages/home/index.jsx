@@ -125,7 +125,7 @@ const Home = ({ posts }) => {
               title="Tesla"
               address="http://www.elon.musk.com"
               description="Elon musk is a musk made for men"
-              name={`Elon Musk`}
+              name={`Elon`}
               // userName={item?.user?.userName}
             /> */}
           </Col>
