@@ -115,7 +115,7 @@ const Home = ({ posts }) => {
                   title={item?.postTitle}
                   address={item?.projectURLs[0] ?? "no source provided"}
                   description={item?.postDescription}
-                  name={`${item?.users?.name}`}
+                  name={`${item?.users?.name.trim()}`}
                   // userName={item?.user?.userName}
                 />
               );
@@ -125,7 +125,7 @@ const Home = ({ posts }) => {
               title="Tesla"
               address="http://www.elon.musk.com"
               description="Elon musk is a musk made for men"
-              name={`Elon`}
+              name={`Elon `.trim()}
               // userName={item?.user?.userName}
             /> */}
           </Col>
