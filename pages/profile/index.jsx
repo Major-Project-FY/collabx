@@ -61,14 +61,15 @@ const Index = () => {
               <Nav.Item>
                 <Nav.Link eventKey="third">Projects</Nav.Link>
               </Nav.Item>
-              <Nav.Item>
+              {/* <Nav.Item>
                 <Nav.Link eventKey="fourth">Ranking</Nav.Link>
-              </Nav.Item>
+              </Nav.Item> */}
             </Nav>
           </Col>
           <Col sm={1}></Col>
           <Col className={styles["right-col"]} sm={8}>
             <Tab.Content>
+              
               <Tab.Pane as="div" eventKey="first">
                 <DetailCards title="Basic Details">
                   <BasicDetails />
@@ -85,11 +86,22 @@ const Index = () => {
                   <Button>Save</Button>
                 </div>
               </Tab.Pane>
+              
               <Tab.Pane as="div" eventKey="second">
                 <ProfileIntegration socialIntegration={socialIntegration} />
                 <br />
                 <Roadmap />
+                <BCard bg="transparent">
+                  <BCard.Header className={styles["card-header"]}>
+                    Current User Ranking
+                  </BCard.Header>
+                  <BCard.Body as="div">
+                    <Ranking />
+                  </BCard.Body>
+                </BCard>
               </Tab.Pane>
+              
+              
               <Tab.Pane as="div" eventKey="third">
                 <BCard bg="transparent">
                   <BCard.Header className={styles["card-header"]}>
@@ -101,16 +113,9 @@ const Index = () => {
                 </BCard>
               </Tab.Pane>
 
-              <Tab.Pane as="div" eventKey="fourth">
-                <BCard bg="transparent">
-                  <BCard.Header className={styles["card-header"]}>
-                    Current User Ranking
-                  </BCard.Header>
-                  <BCard.Body as="div">
-                    <Ranking />
-                  </BCard.Body>
-                </BCard>
-              </Tab.Pane>
+              {/* <Tab.Pane as="div" eventKey="fourth">
+                
+              </Tab.Pane> */}
             </Tab.Content>
           </Col>
         </Row>
