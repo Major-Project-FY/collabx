@@ -118,7 +118,7 @@ const Home = ({ posts }) => {
                 <PostCard
                   key={item?.projectID}
                   title={item?.postTitle}
-                  address={item?.projectURLs[0]}
+                  address={item?.projectURLs[0] ?? "dummy.com"}
                   description={item?.postDescription}
                   name={`${item?.users?.name}`}
                   // userName={item?.user?.userName}
