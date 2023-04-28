@@ -9,7 +9,7 @@ const DUMMY =
 
 const RecommendationCard = ({
   firstName,
-  lastName,
+  lastName="",
   email
 }) => {
   return (
