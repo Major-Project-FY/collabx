@@ -37,18 +37,20 @@ const Ranking = () => {
       </div>
       <br />
       <div>
+      <h6>Your Top languages</h6>
         {username && (
           <Image
-            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}`}
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&hide_title=true&bg_color=efeef0`}
             alt="lang-used"
           />
         )}
       </div>
       <br />
       <div>
+      <h6>Your GitHub stats</h6>
         {username && (
           <Image
-            src={`https://github-readme-stats.vercel.app/api?username=${username}&hide_rank=true`}
+            src={`https://github-readme-stats.vercel.app/api?username=${username}&hide_rank=true&hide_title=true&bg_color=efeef0`}
             alt="lang-used"
           />
         )}
