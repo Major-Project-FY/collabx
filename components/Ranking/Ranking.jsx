@@ -30,29 +30,30 @@ const Ranking = () => {
   return (
     <div>
       <div>
-        <h5>Languages</h5>
-        {username && (
-          <Image
-            src={`https://github-readme-stats.vercel.app/api/top-langs?username=${username}&show_icons=true&locale=en&layout=compact`}
-            alt="lang-used"
-          />
-        )}
-      </div>
-      <div>
-        <h5>Your Stats</h5>
-        {username && (
-          <Image
-            src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&locale=en`}
-            alt="lang-used"
-          />
-        )}
-      </div>
-      <div>
-        <h5>Your overall rank</h5>
+        <h6>Your overall rank</h6>
         <h3>
           <Badge bg="success">{rank}</Badge>
         </h3>
       </div>
+      <br />
+      <div>
+        {username && (
+          <Image
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}`}
+            alt="lang-used"
+          />
+        )}
+      </div>
+      <br />
+      <div>
+        {username && (
+          <Image
+            src={`https://github-readme-stats.vercel.app/api?username=${username}&hide_rank=true`}
+            alt="lang-used"
+          />
+        )}
+      </div>
+      {/* <br /> */}
     </div>
   );
 };
