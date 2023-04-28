@@ -90,7 +90,6 @@ const Index = () => {
               <Tab.Pane as="div" eventKey="second">
                 <ProfileIntegration socialIntegration={socialIntegration} />
                 <br />
-                <Roadmap />
                 <BCard bg="transparent">
                   <BCard.Header className={styles["card-header"]}>
                     Current User Ranking
@@ -99,6 +98,10 @@ const Index = () => {
                     <Ranking />
                   </BCard.Body>
                 </BCard>
+                <br />
+
+                <Roadmap />
+               
               </Tab.Pane>
               
               
