@@ -19,6 +19,7 @@ const Ranking = () => {
         console.log("rank: ", JSON.stringify(response.data));
         setRank(response.data?.userLevel);
         setUsername(response.data?.gitHubUsername);
+        console.log("github username: ",username)
       })
       .catch(function (error) {
         console.log(error);
