@@ -24,13 +24,13 @@ const Home = ({ posts }) => {
   // console.log(userCtx.userData);
   const router = useRouter();
   const [showErr, setShowErr] = useState(false);
+  const [users, setUsers] = useState([]);
   const [data, setData] = useState([]);
   const checkUserLoggedIn = async () => {
     if (userCtx) {
       // userCtx?.isLoggedIn === false && router.push("/");
     }
   };
-
   const getPost = async () => {
     try {
       var config = {
@@ -43,8 +43,27 @@ const Home = ({ posts }) => {
       const result = await axios(config);
 
       if (result.status === 200) {
-        console.log("res ", result);
         setData(result.data.reverse());
+      }
+    } catch (error) {
+      setShowErr(true);
+    }
+  };
+  const getUsers = async () => {
+    try {
+      var config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        withCredentials: true,
+        url: `${Config.root + Config.user.recommendations}`,
+        headers: {},
+      };
+      const result = await axios(config);
+
+      if (result.status === 200) {
+        // console.log("recommend res ", result);
+        setUsers(result?.data);
+        // setData(result.data.reverse());
       }
     } catch (error) {
       setShowErr(true);
@@ -79,6 +98,7 @@ const Home = ({ posts }) => {
   useEffect(() => {
     getPost();
     getGithubRepo();
+    getUsers();
   }, []);
   return (
     <>
@@ -116,9 +136,17 @@ const Home = ({ posts }) => {
               Follow for collaboration .{" "}
               <span className="text-muted">See more</span>
             </p>
-            <RecommendationCard />
-            <RecommendationCard />
-            <RecommendationCard />
+            {users.map((item) => {
+              return (
+                <div key={item?.userID}>
+                  <RecommendationCard
+                    firstName={item?.firstName}
+                    lastName={item?.lastName}
+                    email={item?.userMail}
+                  />
+                </div>
+              );
+            })}
 
             {/* <div className={styles.explore}>
             <p style={{ margin: "1rem" }}>

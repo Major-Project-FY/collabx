@@ -7,7 +7,11 @@ import styles from "./RecommendationCard.module.css";
 const DUMMY =
   "https://yt3.googleusercontent.com/ytc/AL5GRJXcrhueXxa0kujKj2igxeT9S0ZFbgMxaXtXtZv8QQ=s176-c-k-c0x00ffffff-no-rj";
 
-const RecommendationCard = () => {
+const RecommendationCard = ({
+  firstName,
+  lastName,
+  email
+}) => {
   return (
     <Card>
       <Row>
@@ -19,8 +23,9 @@ const RecommendationCard = () => {
         >
           <BImage roundedCircle width={52} height={52} src={DUMMY} alt="dumy" />
           <div className={styles.content}>
-            <h5>Akshay Saini</h5>
-            <p>Founder, NamasteDev | Teacher, Youtuber</p>
+            <h5>{firstName}{" "}{lastName}</h5>
+            <p>{email}</p>
+            {/* <p>Student</p> */}
           </div>
         </Col>
         <Col xs={2} sm={4} md={2} className={styles["follow-icon"]}>
