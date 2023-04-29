@@ -9,7 +9,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import Toast from "../../UI/Toast/Toast";
 import styles from "./Hero.module.css";
-import Config from "../../config"
+import Config from "../../config";
 
 import RIGHTIMG from "../../assets/images/right-shapes.png";
 import AVATAR from "../../assets/images/avatar.png";
@@ -120,8 +120,8 @@ const Hero = () => {
           <div className={styles.content}>
             <h2>Find The Right Patner For Your Projects</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Recusandae, ipsum et tempore voluptatibus exercitationem sit?
+              Platform for students to collaborate on project ideas and to help
+              them analyse their skillset and provide technical career plan.
             </p>
           </div>
 
@@ -141,10 +141,6 @@ const Hero = () => {
       <Container className={styles["feature-container"]}>
         <div className={styles["features-content"]}>
           <h2>How CollabX helps you?</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non dolor
-            mollitia iure ab? Aspernatur, repellat.
-          </p>
         </div>
 
         <div className={styles["features"]}>
