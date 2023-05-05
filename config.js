@@ -11,7 +11,7 @@ const Config = {
   root:
     env === "development"
       ? "http://127.0.0.1:5000"
-      : "https://colabx-backend-production.up.railway.app/",
+      : "https://colabx-backend-production.up.railway.app",
   auth: {
     login: "/auth/user/login",
     signup: "/auth/user/signup",
