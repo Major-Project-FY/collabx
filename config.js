@@ -21,9 +21,9 @@ const Config = {
     githubAuthorize: "/auth/github/authorize",
   },
   user: {
-    githubInfo: "/user/github-info",
-    githubRepos: "/user/github-repos",
-    basicInfo: "/user/basic-info",
+    githubInfo: "/user/github/info",
+    githubRepos: "/user/github/repos",
+    basicInfo: "/user/info",
     ranking: "/user/ranking",
     recommendations: "/user/recommendations"
   },
