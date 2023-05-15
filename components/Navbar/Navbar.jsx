@@ -21,7 +21,7 @@ const Menu = () => {
         <Link href="/home">Home</Link>
       </p>
       <p>
-        <a href="#collaboration">Collaboration</a>
+        <a href="/problem-hub">Problem Hub</a>
       </p>
       <p>
         <a href="#messaging">Messaging</a>

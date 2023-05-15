@@ -22,6 +22,7 @@ const Login = () => {
   const [showErr, setShowErr] = useState(false);
 
   const onSubmit = async (data) => {
+    // console.log(data);
     try {
       var config = {
         method: "post",

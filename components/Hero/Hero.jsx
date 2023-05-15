@@ -33,7 +33,7 @@ const allFeatures = [
     icon: SKILLS,
   },
   {
-    title: "Problem Posting",
+    title: "Problem Hub",
     description:
       "Post the problem statements you have and connect with peers for the solution",
     icon: PROBLEM,

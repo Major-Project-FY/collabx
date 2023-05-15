@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../UI/Card/Card";
 import { Row, Col, Image as BImage } from "react-bootstrap";
-import styles from "./PostCard.module.css";
+import styles from "./PrblmPostCard.module.css";
 import Button from "../../UI/Button/Button";
 import { getRandomColor } from "../../utils/getRandomColor";
 import { BsThreeDots } from "react-icons/bs";
-const PostCard = ({ title, description, name, address }) => {
+
+const PrblmPostCard = ({ statement, name, urls }) => {
   // console.log(name.split(" "))
   const [initals, setInitals] = useState("");
 
@@ -54,21 +55,32 @@ const PostCard = ({ title, description, name, address }) => {
       <Row>
         <Col>
           <div className={styles.description}>
-            <h6>{title}</h6>
-            <p>{description}</p>
+            {/* <h6>{title}</h6> */}
+            <p>{statement}</p>
 
             <div className="d-flex align-items-center justify-content-between">
               <p>
-                You can find the project link{" "}
+                Reference links :{" "}
                 <span>
-                  <a
-                    className="text-primary"
-                    rel="noreferrer"
-                    target="_blank"
-                    href={address}
-                  >
-                    {address}
-                  </a>
+                  {urls.length === 1 ? (
+                    <a key={key} className="text-primary" href={urls[0]}>
+                      {urls[0]}
+                    </a>
+                  ) : (
+                    urls.map((i, key) => {
+                      return (
+                        <a
+                          key={key}
+                          className="text-primary"
+                          rel="noreferrer"
+                          target="_blank"
+                          href={i}
+                        >
+                          <br /> {i}
+                        </a>
+                      );
+                    })
+                  )}
                 </span>
               </p>
               <Button>Collab</Button>
@@ -94,4 +106,4 @@ const PostCard = ({ title, description, name, address }) => {
   );
 };
 
-export default PostCard;
+export default PrblmPostCard;
