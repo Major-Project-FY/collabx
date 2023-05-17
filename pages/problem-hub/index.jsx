@@ -65,10 +65,11 @@ const ProblemHub = () => {
           bg="light"
         />
         <div>
-          <p className="text-center font-weight-bold text-monospace text-xl">
+          <h4 className="text-center font-weight-bold text-monospace text-xl">
             Unleash the Power of Collaboration - Share, Solve, and Innovate!
-          </p>
-          <p>
+          </h4>
+          <br/>
+          {/* <p>
             Welcome to the Problem Hub, a dynamic platform where great minds
             meet to tackle real-world challenges. Whether you're an aspiring
             problem solver or someone with a burning problem in mind, this
@@ -78,10 +79,10 @@ const ProblemHub = () => {
             Together, let's transform ideas into impactful projects and build a
             brighter future. Join CollabX's Problem Hub and unlock a world of
             collaboration possibilities!
-          </p >
+          </p > */}
         </div>
-        <Row>
-          <Col sm={12} md={7}>
+        <Row className="ms-5 me-5">
+          <Col>
             <CreatePrblmPost />
             {data?.map((item) => {
               return (
@@ -94,19 +95,6 @@ const ProblemHub = () => {
                 />
               );
             })}
-          </Col>
-          <Col>
-            <p style={{ margin: "1rem" }}>
-              Your problem statments .{" "}
-              <span className="text-muted">See more</span>
-            </p>
-
-            {/* <div className={styles.explore}>
-            <p style={{ margin: "1rem" }}>
-              Explore
-            </p>
-              <ExploreCard />
-            </div> */}
           </Col>
         </Row>
       </div>

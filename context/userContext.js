@@ -18,6 +18,8 @@ export const UserProvider = ({ children }) => {
 
   const isAuthenticated = async () => {
     const userLocal = JSON.parse(localStorage.getItem("userData"));
+    // const userLocal = localStorage.getItem("userData");
+
     if (userLocal) {
       setUserData(userLocal)
     }

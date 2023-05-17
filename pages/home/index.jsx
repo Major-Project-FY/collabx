@@ -42,6 +42,9 @@ const Home = ({ posts }) => {
         setData(result.data.reverse());
       }
     } catch (error) {
+      if(error?.respose?.status===401){
+        localStorage.clear();
+      } 
       setShowErr(true);
     }
   };
