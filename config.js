@@ -33,8 +33,8 @@ const Config = {
     createNew: "/posts/post",
   },
   statement:{
-    list: "/statements/6157cd65-a2c1-4c11-8f4d-6d26daa4b3cf",
-    userList: "/user/statements",
+    userlist: "/statements/6157cd65-a2c1-4c11-8f4d-6d26daa4b3cf",
+    list: "/user/statements",
     createNew: "/statements/post",
   },
   env: process.env.NODE_ENV,
