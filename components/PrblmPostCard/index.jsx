@@ -63,7 +63,7 @@ const PrblmPostCard = ({ statement, name, urls }) => {
                 Reference links :{" "}
                 <span>
                   {urls.length === 1 ? (
-                    <a key={key} className="text-primary" href={urls[0]}>
+                    <a className="text-primary" href={urls[0]}>
                       {urls[0]}
                     </a>
                   ) : (

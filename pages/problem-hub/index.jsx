@@ -11,7 +11,6 @@ import ExploreCard from "../../components/ExploreCard/ExploreCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import axios from "axios";
 import { Row, Col } from "react-bootstrap";
-
 import styles from "../../styles/Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Config from "../../config";
@@ -21,16 +20,30 @@ const ProblemHub = () => {
   const [showErr, setShowErr] = useState(false);
 
   const [data, setData] = useState([
-    // {
-    //   postID: "6157cd65-a2c1-4c11-8f4d-6d26daa4b3cf",
-    //   userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
-    //   statementText: " A sample problem statement",
-    //   postURLs: ["https://www.google.com", "dummy"],
-    //   user: {
-    //     name: "Durgesh",
-    //   },
-    // },
+    {
+      postID: "6157cd65-a2c1-4c11-8f4d-6d26daa4b3cf",
+      userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
+      statementText: " A sample problem statement",
+      postURLs: ["https://www.google.com"],
+      postedOn: "2023-05-10T07:03:00.643Z",
+    },
+    {
+      postID: "bf0dd55a-1eab-455f-bfc1-346018eae938",
+      userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
+      statementText: " A sample problem statement",
+      postURLs: ["https://www.google.com"],
+      postedOn: "2023-05-10T06:57:15.429Z",
+    },
+    {
+      postID: "c498e249-1c85-42eb-b28b-2850f45608aa",
+      userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
+      statementText: " A sample problem statement",
+      postURLs: ["https://www.google.com"],
+      postedOn: "2023-05-10T05:58:29.744Z",
+    },
   ]);
+
+  
   const router = useRouter();
 
   const getProblemHubPosts = async () => {
@@ -43,7 +56,7 @@ const ProblemHub = () => {
       };
       const result = await axios(config);
       if (result.status === 200) {
-        console.log("res data",result.data);
+        console.log("res data", result.data);
         setData(result.data);
       }
     } catch (error) {
@@ -68,7 +81,7 @@ const ProblemHub = () => {
           <h4 className="text-center font-weight-bold text-monospace text-xl">
             Unleash the Power of Collaboration - Share, Solve, and Innovate!
           </h4>
-          <br/>
+          <br />
           {/* <p>
             Welcome to the Problem Hub, a dynamic platform where great minds
             meet to tackle real-world challenges. Whether you're an aspiring

@@ -25,7 +25,9 @@ const Config = {
     githubRepos: "/user/github/repos",
     basicInfo: "/user/info",
     ranking: "/user/ranking",
-    recommendations: "/user/recommendations"
+    recommendations: "/user/recommendations",
+    listSkills: "/user/skills/",
+    addSkill: "/user/add/skill"
   },
   post: {
     list: "/posts",
