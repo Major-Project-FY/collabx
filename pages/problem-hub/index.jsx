@@ -23,27 +23,37 @@ const ProblemHub = () => {
     {
       postID: "6157cd65-a2c1-4c11-8f4d-6d26daa4b3cf",
       userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
-      statementText: " A sample problem statement",
-      postURLs: ["https://www.google.com"],
+      statementText:
+        "Design a system that efficiently manages and minimizes traffic congestion in a busy city. The solution should incorporate real-time traffic monitoring, intelligent traffic signal control, and route optimization algorithms to reduce travel time and improve overall traffic flow. The system should also consider factors like emergency vehicle prioritization and pedestrian safety.",
+      postURLs: [
+        "https://ops.fhwa.dot.gov/publications/congestion_mgmt_strategies/index.html",
+        "https://transportationops.org/its-solutions/intelligent-traffic-signal-systems",
+        "https://towardsdatascience.com/route-optimization-for-transportation-1f34b63793c6",
+      ],
       postedOn: "2023-05-10T07:03:00.643Z",
     },
     {
       postID: "bf0dd55a-1eab-455f-bfc1-346018eae938",
       userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
-      statementText: " A sample problem statement",
-      postURLs: ["https://www.google.com"],
+      statementText:
+        "Develop an intelligent waste management system that optimizes waste collection routes and schedules for a city. The system should use data from sensors placed in waste bins to monitor the fill-level and generate optimized collection routes for waste collection trucks. The solution should minimize travel distances, reduce fuel consumption, and improve the efficiency of waste collection operations.",
+      postURLs: [
+        "https://www.sciencedirect.com/science/article/pii/S0956053X14004708",
+        "https://wasteadvantagemag.com/waste-management-optimization-a-comprehensive-guide",
+        "https://www.epa.gov/air-research/air-quality-monitoring-assessment-and-management",
+      ],
       postedOn: "2023-05-10T06:57:15.429Z",
     },
     {
       postID: "c498e249-1c85-42eb-b28b-2850f45608aa",
       userID: "35914932-8e10-4bd0-bf61-ec0aaa438a56",
-      statementText: " A sample problem statement",
-      postURLs: ["https://www.google.com"],
+      statementText:
+        "Create a system for monitoring and analyzing air quality in urban areas. The system should collect data from a network of sensors placed strategically across the city and provide real-time information about air pollution levels. It should also analyze the data to identify patterns, sources of pollution, and potential health risks. The system should provide insights to help city authorities make informed decisions and take proactive measures to improve air quality.",
+      postURLs: ["https://informeddecisions.com/air-quality-monitoring", ""],
       postedOn: "2023-05-10T05:58:29.744Z",
     },
   ]);
 
-  
   const router = useRouter();
 
   const getProblemHubPosts = async () => {
@@ -60,6 +70,11 @@ const ProblemHub = () => {
         setData(result.data);
       }
     } catch (error) {
+      console.log("err code", error?.response?.code);
+      if (error?.response?.status === 401) {
+        localStorage.clear();
+         router.push('/auth/login');
+      }
       setShowErr(true);
     }
   };
@@ -67,6 +82,7 @@ const ProblemHub = () => {
   useEffect(() => {
     getProblemHubPosts();
   }, []);
+  
   return (
     <>
       <div className={styles.container}>

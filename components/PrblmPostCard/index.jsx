@@ -26,17 +26,16 @@ const PrblmPostCard = ({ statement, name, urls }) => {
     <Card>
       <Row className="d-flex align-items-start justify-content-start">
         <Col md={2} sm={2} xs={2} className={styles["profile-image"]}>
-          <div
+          {/* <div
             style={{ backgroundColor: `${getRandomColor()}` }}
             className={styles["dummy-img"]}
           >
             {initals}
-            {/* {name.slice(0)[0] + name?.split(" ")[1] ? name?.split(" ")[1][0] : "" } */}
-          </div>
+          </div> */}
         </Col>
         <Col md={8} sm={7} xs={8} className={styles["profile-description"]}>
           <div className={styles.content}>
-            <h4>{name}</h4>
+            {/* <h4>{name}</h4> */}
             {/* <p className={`${styles["content-time"]} text-muted`}>3 hrs</p> */}
           </div>
         </Col>

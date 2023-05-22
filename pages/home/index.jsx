@@ -42,9 +42,11 @@ const Home = ({ posts }) => {
         setData(result.data.reverse());
       }
     } catch (error) {
-      if(error?.respose?.status===401){
+      console.log("err code", error?.response?.code);
+      if (error?.response?.status === 401) {
         localStorage.clear();
-      } 
+        router.push("/auth/login");
+      }
       setShowErr(true);
     }
   };
