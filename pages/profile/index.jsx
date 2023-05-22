@@ -137,25 +137,25 @@ const Roadmap = () => {
         <div className="d-flex align-items-center gap-3 flex-wrap mb-3">
           <Button
             className="px-5 py-3 bg-primary w-25"
-            href="http://localhost:3001/frontend"
+            href="https://roadmaps.collabx.tech/frontend"
           >
             Frontend
           </Button>
           <Button
             className="px-5 py-3 bg-primary w-25"
-            href="http://localhost:3001/backend"
+            href="https://roadmaps.collabx.tech/backend"
           >
             Backend
           </Button>
           <Button
             className="px-5 py-3 bg-primary w-25"
-            href="http://localhost:3001/cyber-security"
+            href="https://roadmaps.collabx.tech/cyber-security"
           >
             Cyber Security
           </Button>
           <Button
             className="px-5 py-3 bg-primary w-25"
-            href="http://localhost:3001/postgresql-dba"
+            href="https://roadmaps.collabx.tech/postgresql-dba"
           >
             DBA
           </Button>
@@ -165,17 +165,17 @@ const Roadmap = () => {
         <div className="d-flex align-items-center gap-3 flex-wrap mb-3">
           <Button
             className="px-5 py-3 bg-primary w-25"
-            href="http://localhost:3001/react"
+            href="https://roadmaps.collabx.tech/react"
           >
             React
           </Button>
           <Button
             className="px-5 py-3 bg-primary w-25"
-            href="http://localhost:3001/nodejs"
+            href="https://roadmaps.collabx.tech/nodejs"
           >
             Node.js
           </Button>
-          {/* <Button className="px-5 py-3 bg-primary w-25"  href="http://localhost:3001/frontend">MongoDB</Button> */}
+          {/* <Button className="px-5 py-3 bg-primary w-25"  href="https://roadmaps.collabx.tech/frontend">MongoDB</Button> */}
         </div>
         {/* <div className={styles["social-icons"]}>
           {socialIntegration.map((data) => (
