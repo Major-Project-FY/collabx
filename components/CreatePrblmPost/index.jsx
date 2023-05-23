@@ -76,7 +76,7 @@ const CreatePrblmPost = () => {
   };
 
   useEffect(() => {
-    fetchSkills();
+    // fetchSkills();
   }, []);
 
   return (
@@ -116,7 +116,7 @@ const CreatePrblmPost = () => {
               isMulti
               value={selectedSkills}
               placeholder="Select skills required"
-              // onInputChange={fetchSkills}
+              onInputChange={fetchSkills}
               onChange={handleSkillsChange}
             />
 
