@@ -74,26 +74,26 @@ const CreatePrblmPost = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [options, setOptions] = useState(data);
 
-  // const fetchSkills = async (inputValue) => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${Config.root + Config.user.listSkills}query?q=${inputValue}`,
-  //       {
-  //         withCredentials: true,
-  //       }
-  //     );
-  //     const data = response.data;
-  //     const skillsData = data?.map((item) => {
-  //       return {
-  //         value: item?.skillID,
-  //         label: item?.skill,
-  //       };
-  //     });
-  //     setOptions(skillsData);
-  //   } catch (error) {
-  //     console.error("Error fetching skills:", error);
-  //   }
-  // };
+  const fetchSkills = async (inputValue) => {
+    try {
+      const response = await axios.get(
+        `${Config.root + Config.user.listSkills}query?q=${inputValue}`,
+        {
+          withCredentials: true,
+        }
+      );
+      const data = response.data;
+      const skillsData = data?.map((item) => {
+        return {
+          value: item?.skillID,
+          label: item?.skill,
+        };
+      });
+      setOptions(skillsData);
+    } catch (error) {
+      console.error("Error fetching skills:", error);
+    }
+  };
 
   const handleSkillsChange = (selectedOptions) => {
     console.log("selectd option", selectedOptions);
@@ -133,16 +133,16 @@ const CreatePrblmPost = () => {
   };
 
   useEffect(() => {
-    // fetchSkills();
+    fetchSkills();
 
-    const updated = data.map((item) => {
-      return {
-        value: item.skillID,
-        label: item.skill,
-      };
-    });
+    // const updated = data.map((item) => {
+    //   return {
+    //     value: item.skillID,
+    //     label: item.skill,
+    //   };
+    // });
 
-    setOptions(updated);
+    // setOptions(updated);
   }, []);
 
   return (
