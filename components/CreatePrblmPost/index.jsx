@@ -21,13 +21,20 @@ const CreatePrblmPost = () => {
 
   const fetchSkills = async (inputValue) => {
     try {
-      const response = await axios.get(`${Config.root + Config.user.listSkills}query?q=${inputValue}`);
+      const response = await axios.get(
+        `${Config.root + Config.user.listSkills}query?q=${inputValue}`,
+        {
+          withCredentials: true,
+        }
+      );
       const data = response.data;
       const skillsData = data.map((item) => ({
         value: item.skillID,
         label: item.skill,
       }));
       setOptions(skillsData);
+
+      console.log("data", data);
     } catch (error) {
       console.error("Error fetching skills:", error);
     }
@@ -68,9 +75,9 @@ const CreatePrblmPost = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getSkills();
-  // }, []);
+  useEffect(() => {
+    fetchSkills();
+  }, []);
 
   return (
     <Card>
@@ -109,7 +116,7 @@ const CreatePrblmPost = () => {
               isMulti
               value={selectedSkills}
               placeholder="Select skills required"
-              onInputChange={fetchSkills}
+              // onInputChange={fetchSkills}
               onChange={handleSkillsChange}
             />
 
