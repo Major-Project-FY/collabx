@@ -97,7 +97,7 @@ const CreatePrblmPost = () => {
 
   const handleSkillsChange = (selectedOptions) => {
     console.log("selectd option", selectedOptions);
-    const selectedSkill = selectedOptions.map((option) => option);
+    // const selectedSkill = selectedOptions.map((option) => option);
     setSelectedSkills(selectedOptions);
   };
 
@@ -169,7 +169,7 @@ const CreatePrblmPost = () => {
             <Select
               options={options}
               isMulti
-              value={selectedSkills}
+              selectedOption={selectedSkills}
               placeholder="Select skills required"
               // onInputChange={fetchSkills}
               onChange={handleSkillsChange}
