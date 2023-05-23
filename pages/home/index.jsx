@@ -21,11 +21,27 @@ const Home = ({ posts }) => {
   const [showErr, setShowErr] = useState(false);
   const [users, setUsers] = useState([]);
   const [data, setData] = useState([]);
-  const checkUserLoggedIn = async () => {
-    if (userCtx) {
-      // userCtx?.isLoggedIn === false && router.push("/");
-    }
+
+  const isLoggedIn = localStorage.getItem("githubAuth");
+
+  const getUserInfo = async () => {
+    let config = {
+      method: "get",
+      url: `${Config.root + Config.user.basicInfo}`,
+      withCredentials: true,
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(response.data);
+        userCtx.login(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
   const getPost = async () => {
     try {
       var config = {
@@ -97,6 +113,8 @@ const Home = ({ posts }) => {
     getPost();
     getGithubRepo();
     getUsers();
+
+    isLoggedIn && getUserInfo();
   }, []);
   return (
     <>

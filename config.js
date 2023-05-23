@@ -35,7 +35,7 @@ const Config = {
     createNew: "/posts/post",
   },
   statement:{
-    userlist: "/statements/6157cd65-a2c1-4c11-8f4d-6d26daa4b3cf",
+    userlist: "/statements/:id",
     list: "/user/statements",
     createNew: "/statements/post",
   },

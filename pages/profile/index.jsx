@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 
 import { Col, Row, Tab, Nav, Card as BCard } from "react-bootstrap";
@@ -19,6 +19,7 @@ import styles from "../../styles/profile.module.css";
 import Ranking from "../../components/Ranking/Ranking";
 import { FaCheck } from "react-icons/fa";
 import Config from "../../config";
+import { UserContext } from "../../context/userContext";
 
 const socialIntegration = [
   {
@@ -61,9 +62,9 @@ const Index = () => {
               <Nav.Item>
                 <Nav.Link eventKey="third">Projects</Nav.Link>
               </Nav.Item>
-              {/* <Nav.Item>
-                <Nav.Link eventKey="fourth">Ranking</Nav.Link>
-              </Nav.Item> */}
+              <Nav.Item>
+                <Nav.Link eventKey="fourth">My Problem Statements</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Col>
           <Col sm={1}></Col>
@@ -97,7 +98,6 @@ const Index = () => {
                   <BCard.Body as="div">
                     <Ranking />
                   </BCard.Body>
-
                 </BCard>
                 <br />
 
@@ -115,9 +115,16 @@ const Index = () => {
                 </BCard>
               </Tab.Pane>
 
-              {/* <Tab.Pane as="div" eventKey="fourth">
-                
-              </Tab.Pane> */}
+              <Tab.Pane as="div" eventKey="fourth">
+                <BCard bg="transparent">
+                  <BCard.Header className={styles["card-header"]}>
+                    Project Details
+                  </BCard.Header>
+                  <BCard.Body as="div">
+                    <ProblemStatements />
+                  </BCard.Body>
+                </BCard>
+              </Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>
@@ -233,6 +240,32 @@ const IconCard = ({ title, icon }) => {
       </span>
     </div>
   );
+};
+
+const ProblemStatements = () => {
+  const userCtx = useContext(UserContext);
+
+  console.log("user context", userCtx);
+
+  const fetchMyStatements = async () => {
+    try {
+      let config = {
+        method: "get",
+        url: `${Config.root}/statements/${userCtx?.userID}`,
+        withCredentials: true,
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (error) {}
+  };
+  return <div>Problem Statements</div>;
 };
 
 export default Index;
