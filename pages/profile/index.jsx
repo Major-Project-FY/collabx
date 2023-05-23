@@ -243,28 +243,28 @@ const IconCard = ({ title, icon }) => {
 };
 
 const ProblemStatements = () => {
-  const userCtx = useContext(UserContext);
+  // const userCtx = useContext(UserContext);
 
-  console.log("user context", userCtx);
+  // console.log("user context", userCtx);
 
-  const fetchMyStatements = async () => {
-    try {
-      let config = {
-        method: "get",
-        url: `${Config.root}/statements/${userCtx?.userID}`,
-        withCredentials: true,
-      };
+  // const fetchMyStatements = async () => {
+  //   try {
+  //     let config = {
+  //       method: "get",
+  //       url: `${Config.root}/statements/${userCtx?.userID}`,
+  //       withCredentials: true,
+  //     };
 
-      axios
-        .request(config)
-        .then((response) => {
-          console.log(JSON.stringify(response.data));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } catch (error) {}
-  };
+  //     axios
+  //       .request(config)
+  //       .then((response) => {
+  //         console.log(JSON.stringify(response.data));
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   } catch (error) {}
+  // };
   return <div>Problem Statements</div>;
 };
 
