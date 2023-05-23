@@ -7,13 +7,11 @@ import Wrapper from "../../UI/Wrapper/Wrapper";
 import PostCard from "../../components/PostCard/PostCard";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import RecommendationCard from "../../components/RecommendationCard/RecommendationCard";
-import ExploreCard from "../../components/ExploreCard/ExploreCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 
 import styles from "../../styles/Home.module.css";
-import Navbar from "../../components/Navbar/Navbar";
 import Config from "../../config";
 
 const Home = ({ posts }) => {
@@ -45,7 +43,7 @@ const Home = ({ posts }) => {
       console.log("err code", error?.response?.code);
       if (error?.response?.status === 401) {
         localStorage.clear();
-        router.push("/auth/login");
+        // router.push("/auth/login");
       }
       setShowErr(true);
     }
