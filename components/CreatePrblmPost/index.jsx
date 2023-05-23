@@ -73,11 +73,12 @@ const CreatePrblmPost = () => {
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [options, setOptions] = useState(data);
+  const [inputChange, setInputChange] = useState("");
 
   const fetchSkills = async (inputValue) => {
     try {
       const response = await axios.get(
-        `${Config.root + Config.user.listSkills}query?q=${inputValue}`,
+        `${Config.root + Config.user.listSkills}query?q=${inputChange}`,
         {
           withCredentials: true,
         }
@@ -133,7 +134,19 @@ const CreatePrblmPost = () => {
   };
 
   useEffect(() => {
-    fetchSkills();
+    const delay = 500;
+    let timeoutId;
+
+    clearTimeout(timeoutId);
+    if (inputChange) {
+      timeoutId = setTimeout(fetchSkills, delay);
+    } else {
+      setOptions([]);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
 
     // const updated = data.map((item) => {
     //   return {
@@ -143,7 +156,11 @@ const CreatePrblmPost = () => {
     // });
 
     // setOptions(updated);
-  }, []);
+  }, [inputChange]);
+
+  const handleInputChange = (e) => {
+    setInputChange(e);
+  };
 
   return (
     <Card>
@@ -182,7 +199,7 @@ const CreatePrblmPost = () => {
               isMulti
               selectedOption={selectedSkills}
               placeholder="Select skills required"
-              onInputChange={fetchSkills}
+              onInputChange={handleInputChange}
               onChange={handleSkillsChange}
             />
 
