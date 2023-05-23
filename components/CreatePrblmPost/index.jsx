@@ -98,7 +98,7 @@ const CreatePrblmPost = () => {
   const handleSkillsChange = (selectedOptions) => {
     console.log("selectd option", selectedOptions);
     const selectedSkill = selectedOptions.map((option) => option);
-    setSelectedSkills(selectedSkill);
+    setSelectedSkills(selectedOptions);
   };
 
   const onSubmit = async (data) => {
