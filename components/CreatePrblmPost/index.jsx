@@ -12,33 +12,88 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Config from "../../config";
 
+const data = [
+  {
+    skillID: 32,
+    skill: "Web Development",
+  },
+  {
+    skillID: 39,
+    skill: "Web Design Principles",
+  },
+  {
+    skillID: 55,
+    skill: "Web hosting",
+  },
+  {
+    skillID: 56,
+    skill: "Web analytics",
+  },
+  {
+    skillID: 63,
+    skill: "RESTful web services",
+  },
+  {
+    skillID: 65,
+    skill: "Web sockets",
+  },
+  {
+    skillID: 148,
+    skill: "Frontend Web Development",
+  },
+  {
+    skillID: 149,
+    skill: "Backend Web Development",
+  },
+  {
+    skillID: 150,
+    skill: "Fullstack Web Development",
+  },
+  {
+    skillID: 172,
+    skill: "Web Security",
+  },
+  {
+    skillID: 213,
+    skill: "RESTful Web Services",
+  },
+  {
+    skillID: 217,
+    skill: "Amazon Web Services (AWS)",
+  },
+  {
+    skillID: 238,
+    skill: "Webpack",
+  },
+];
+
 const CreatePrblmPost = () => {
   const [showErr, setShowErr] = useState(false);
   const { register, handleSubmit } = useForm();
 
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState(data);
 
-  const fetchSkills = async (inputValue) => {
-    try {
-      const response = await axios.get(
-        `${Config.root + Config.user.listSkills}query?q=${inputValue}`,
-        {
-          withCredentials: true,
-        }
-      );
-      const data = response.data;
-      const skillsData = data.map((item) => ({
-        value: item.skillID,
-        label: item.skill,
-      }));
-      setOptions(skillsData);
+  // const fetchSkills = async (inputValue) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `${Config.root + Config.user.listSkills}query?q=${inputValue}`,
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     );
+  //     const data = response.data;
+  //     const skillsData = data?.map((item) => ({
+  //       value: item?.skillID,
+  //       label: item?.skill,
+  //     }));
+  //     setOptions(skillsData);
 
-      console.log("data", data);
-    } catch (error) {
-      console.error("Error fetching skills:", error);
-    }
-  };
+  //     console.log("data", data);
+  //   } catch (error) {
+  //     console.error("Error fetching skills:", error);
+  //   }
+  // };
 
   const handleSkillsChange = (selectedOptions) => {
     console.log("selectd option", selectedOptions);
@@ -116,7 +171,7 @@ const CreatePrblmPost = () => {
               isMulti
               value={selectedSkills}
               placeholder="Select skills required"
-              onInputChange={fetchSkills}
+              // onInputChange={fetchSkills}
               onChange={handleSkillsChange}
             />
 
