@@ -182,7 +182,7 @@ const CreatePrblmPost = () => {
               isMulti
               selectedOption={selectedSkills}
               placeholder="Select skills required"
-              // onInputChange={fetchSkills}
+              onInputChange={fetchSkills}
               onChange={handleSkillsChange}
             />
 
