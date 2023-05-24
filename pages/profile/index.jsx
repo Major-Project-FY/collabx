@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 
 import { Col, Row, Tab, Nav, Card as BCard } from "react-bootstrap";
@@ -20,6 +20,7 @@ import Ranking from "../../components/Ranking/Ranking";
 import { FaCheck } from "react-icons/fa";
 import Config from "../../config";
 import { UserContext } from "../../context/userContext";
+import PrblmPostCard from "../../components/PrblmPostCard";
 
 const socialIntegration = [
   {
@@ -243,29 +244,49 @@ const IconCard = ({ title, icon }) => {
 };
 
 const ProblemStatements = () => {
-  // const userCtx = useContext(UserContext);
+  const [data, setData] = useState([]);
+  const userCtx = useContext(UserContext);
 
-  // console.log("user context", userCtx);
+  console.log("user context", userCtx);
 
-  // const fetchMyStatements = async () => {
-  //   try {
-  //     let config = {
-  //       method: "get",
-  //       url: `${Config.root}/statements/${userCtx?.userID}`,
-  //       withCredentials: true,
-  //     };
+  const fetchMyStatements = async () => {
+    let config = {
+      method: "get",
+      url: `${Config.root}/statements/${userCtx?.userID}`,
+      withCredentials: true,
+    };
 
-  //     axios
-  //       .request(config)
-  //       .then((response) => {
-  //         console.log(JSON.stringify(response.data));
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   } catch (error) {}
-  // };
-  return <div>Problem Statements</div>;
+    axios
+      .request(config)
+      .then((response) => {
+        console.log("response data: ", response);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    fetchMyStatements();
+  }, []);
+
+  return (
+    <div>
+      {" "}
+      {data?.map((item) => {
+        return (
+          <PrblmPostCard
+            key={item?.postID}
+            statement={item?.statementText}
+            urls={item?.postURLs}
+            name={`${item?.user?.name.trim()}`}
+            // userName={item?.user?.userName}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 export default Index;
