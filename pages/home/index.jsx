@@ -22,24 +22,24 @@ const Home = ({ posts }) => {
   const [users, setUsers] = useState([]);
   const [data, setData] = useState([]);
 
-  const isLoggedIn = localStorage.getItem("githubAuth");
-
-  const getUserInfo = async () => {
+  const getUserInfo = async (isLoggedIn) => {
     let config = {
       method: "get",
       url: `${Config.root + Config.user.basicInfo}`,
       withCredentials: true,
     };
 
-    axios
-      .request(config)
-      .then((response) => {
-        console.log(response.data);
-        userCtx.login(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (isLoggedIn) {
+      axios
+        .request(config)
+        .then((response) => {
+          console.log(response.data);
+          userCtx.login(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const getPost = async () => {
@@ -114,7 +114,9 @@ const Home = ({ posts }) => {
     getGithubRepo();
     getUsers();
 
-    isLoggedIn && getUserInfo();
+    const isLoggedIn = localStorage.getItem("githubAuth")
+
+    getUserInfo(isLoggedIn);
   }, []);
   return (
     <>
