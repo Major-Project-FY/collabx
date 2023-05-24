@@ -18,9 +18,7 @@ import GITLABIMG from "../../public/socialIcons/gitlab.png";
 import styles from "../../styles/profile.module.css";
 import Ranking from "../../components/Ranking/Ranking";
 import { FaCheck } from "react-icons/fa";
-import Config from "../../config";
-import { UserContext } from "../../context/userContext";
-import PrblmPostCard from "../../components/PrblmPostCard";
+
 
 const socialIntegration = [
   {
@@ -244,37 +242,37 @@ const IconCard = ({ title, icon }) => {
 };
 
 const ProblemStatements = () => {
-  const [data, setData] = useState([]);
-  const userCtx = useContext(UserContext);
+  // const [data, setData] = useState([]);
 
-  console.log("user context", userCtx);
+  // const fetchMyStatements = async (userData) => {
+  //   let config = {
+  //     method: "get",
+  //     url: `${Config.root}/statements/${userData?.userID}`,
+  //     withCredentials: true,
+  //   };
 
-  const fetchMyStatements = async () => {
-    let config = {
-      method: "get",
-      url: `${Config.root}/statements/${userCtx?.userID}`,
-      withCredentials: true,
-    };
+  //   axios
+  //     .request(config)
+  //     .then((response) => {
+  //       console.log("response data: ", response);
+  //       setData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-    axios
-      .request(config)
-      .then((response) => {
-        console.log("response data: ", response);
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // useEffect(() => {
+  //   const userData = localStorage.getItem("userData");
 
-  useEffect(() => {
-    fetchMyStatements();
-  }, []);
+  //   fetchMyStatements(JSON.parse(userData));
+  // }, []);
 
   return (
     <div>
+      hello
       {" "}
-      {data?.map((item) => {
+      {/* {data?.map((item) => {
         return (
           <PrblmPostCard
             key={item?.postID}
@@ -284,7 +282,7 @@ const ProblemStatements = () => {
             // userName={item?.user?.userName}
           />
         );
-      })}
+      })} */}
     </div>
   );
 };
