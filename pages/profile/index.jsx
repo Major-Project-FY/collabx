@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 
 import { Col, Row, Tab, Nav, Card as BCard } from "react-bootstrap";
@@ -18,7 +18,6 @@ import GITLABIMG from "../../public/socialIcons/gitlab.png";
 import styles from "../../styles/profile.module.css";
 import Ranking from "../../components/Ranking/Ranking";
 import { FaCheck } from "react-icons/fa";
-
 
 const socialIntegration = [
   {
@@ -60,9 +59,6 @@ const Index = () => {
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="third">Projects</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="fourth">My Problem Statements</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
@@ -270,8 +266,7 @@ const ProblemStatements = () => {
 
   return (
     <div>
-      hello
-      {" "}
+      hello{" "}
       {/* {data?.map((item) => {
         return (
           <PrblmPostCard
